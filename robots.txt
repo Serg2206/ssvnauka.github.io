@@ -3,3 +3,4 @@ Allow: /
 Disallow: /images/
 
 Sitemap: https://ssvnauka.com/sitemap.xml
+# Rebuild trigger: 2026-07-09
