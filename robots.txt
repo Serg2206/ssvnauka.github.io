@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /images/
 
-Sitemap: https://ssvnauka.com/sitemap.xml
-# Rebuild trigger: 2026-07-09
+Sitemap: https://serg2206.github.io/sitemap.xml

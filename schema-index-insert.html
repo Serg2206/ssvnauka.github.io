@@ -1,0 +1,232 @@
+<!--
+=============================================================
+ Schema.org JSON-LD для главной страницы (index.html)
+ Вставить в <head> ВМЕСТО или ПОСЛЕ существующих мета-тегов
+=============================================================
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+
+    /* ── 1. Веб-сайт ── */
+    {
+      "@type": "WebSite",
+      "@id": "https://ssvnauka.com/#website",
+      "url": "https://ssvnauka.com/",
+      "name": "Медицинский центр MARIA — Профессор Сушков С.В.",
+      "description": "Хирургия, онкохирургия, гинекология в Харькове. Профессорский уровень медицины.",
+      "inLanguage": ["ru", "uk", "en"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://ssvnauka.com/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+
+    /* ── 2. Организация — МЦ MARIA ── */
+    {
+      "@type": "MedicalOrganization",
+      "@id": "https://ssvnauka.com/#organization",
+      "name": "Медицинский центр MARIA",
+      "alternateName": "МЦ МАРИЯ",
+      "url": "https://ssvnauka.com/",
+      "logo": "https://ssvnauka.com/images/logo.png",
+      "image": "https://ssvnauka.com/images/doctor-portrait.jpg",
+      "telephone": "+380675707949",
+      "email": "ssvproff@gmail.com",
+      "sameAs": [
+        "https://t.me/SSVproff_medical_bot",
+        "https://wa.me/380675707949"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "вул. Сірохінська",
+        "addressLocality": "Харків",
+        "addressRegion": "Харківська область",
+        "postalCode": "61000",
+        "addressCountry": "UA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 49.99473,
+        "longitude": 36.23110
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "description": "По предварительной записи"
+      },
+      "medicalSpecialty": [
+        { "@type": "MedicalSpecialty", "name": "Хирургия" },
+        { "@type": "MedicalSpecialty", "name": "Онкохирургия" },
+        { "@type": "MedicalSpecialty", "name": "Гинекология" },
+        { "@type": "MedicalSpecialty", "name": "Лапароскопическая хирургия" }
+      ],
+      "priceRange": "₴₴",
+      "currenciesAccepted": "UAH",
+      "paymentAccepted": "Cash, Bank Transfer",
+      "availableService": [
+        { "@type": "MedicalProcedure", "name": "Лапароскопическая хирургия", "url": "https://ssvnauka.com/surgery/" },
+        { "@type": "MedicalProcedure", "name": "Онкохирургия", "url": "https://ssvnauka.com/oncosurgery/" },
+        { "@type": "MedicalProcedure", "name": "Гинекологические операции", "url": "https://ssvnauka.com/gynecology/" },
+        { "@type": "MedicalProcedure", "name": "Миомэктомия", "url": "https://ssvnauka.com/myomectomy/" },
+        { "@type": "MedicalProcedure", "name": "Онко-диагностика", "url": "https://ssvnauka.com/onco-diagnostics/" },
+        { "@type": "MedicalProcedure", "name": "Профосмотр", "url": "https://ssvnauka.com/checkup/" }
+      ]
+    },
+
+    /* ── 3. Врач — Профессор Сушков ── */
+    {
+      "@type": "Physician",
+      "@id": "https://ssvnauka.com/#physician",
+      "name": "Сушков Сергей Валентинович",
+      "honorificPrefix": "Профессор",
+      "honorificSuffix": "д.мед.н.",
+      "givenName": "Сергей",
+      "familyName": "Сушков",
+      "description": "Хирург-онколог, доктор медицинских наук, профессор. Член Европейской ассоциации эндоскопической хирургии (EAES). Пионер лапароскопической хирургии в Харьковском регионе (1995). 40+ лет опыта, 5000+ операций, 121 публикация, h-index 6.",
+      "image": "https://ssvnauka.com/images/doctor-portrait.jpg",
+      "url": "https://ssvnauka.com/about/",
+      "telephone": "+380675707949",
+      "email": "ssvproff@gmail.com",
+      "sameAs": [
+        "https://orcid.org/0000-0002-6951-9789",
+        "https://www.scopus.com/authid/detail.uri?authorId=55360196800"
+      ],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Институт общей и неотложной хирургии им. В.Т. Зайцева НАМН Украины"
+      },
+      "affiliation": [
+        {
+          "@type": "MedicalOrganization",
+          "@id": "https://ssvnauka.com/#organization"
+        },
+        {
+          "@type": "Organization",
+          "name": "Европейская ассоциация эндоскопической хирургии (EAES)"
+        }
+      ],
+      "medicalSpecialty": [
+        { "@type": "MedicalSpecialty", "name": "Хирургия" },
+        { "@type": "MedicalSpecialty", "name": "Хирургическая онкология" },
+        { "@type": "MedicalSpecialty", "name": "Лапароскопическая хирургия" },
+        { "@type": "MedicalSpecialty", "name": "Гинекология" }
+      ],
+      "award": "18 патентов на изобретения в области хирургии",
+      "knowsAbout": [
+        "Лапароскопическая хирургия",
+        "Онкохирургия",
+        "Гинекологические операции",
+        "Миомэктомия",
+        "Абдоминальная хирургия"
+      ],
+      "worksFor": { "@id": "https://ssvnauka.com/#organization" }
+    },
+
+    /* ── 4. Главная страница ── */
+    {
+      "@type": "MedicalWebPage",
+      "@id": "https://ssvnauka.com/#webpage",
+      "url": "https://ssvnauka.com/",
+      "name": "Профессор Сушков С.В. — Хирург-онколог | МЦ MARIA, Харьков",
+      "description": "40+ лет опыта, 5000+ операций, 121 публикация. Лапароскопия, онкология, гинекология. Медицинский центр MARIA, Харьков.",
+      "inLanguage": "ru",
+      "isPartOf": { "@id": "https://ssvnauka.com/#website" },
+      "about": { "@id": "https://ssvnauka.com/#organization" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://ssvnauka.com/" }
+        ]
+      }
+    },
+
+    /* ── 5. FAQ для главной страницы ── */
+    {
+      "@type": "FAQPage",
+      "url": "https://ssvnauka.com/",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Сколько стоит консультация профессора Сушкова?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Первичная консультация профессора Сушкова С.В. — 2000 грн. Приём по предварительной записи. Запись по телефону +380 67 570 79 49 или в Telegram @SSVproff_medical_bot."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие операции выполняет профессор Сушков?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Профессор Сушков выполняет лапароскопические и открытые операции: холецистэктомия, лечение грыж, аппендэктомия, онкологические операции (рак желудка, кишечника, молочной железы, женских органов), гинекологические операции (миомэктомия, удаление кист яичников), операции на кишечнике."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как записаться на приём к профессору Сушкову?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Запись по телефону +380 67 570 79 49, WhatsApp или Viber по тому же номеру, Telegram @SSVproff_medical_bot, или через форму на сайте. МЦ MARIA работает по предварительной записи."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Принимает ли профессор Сушков пациентов без направления?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, направление от другого врача не обязательно. Вы можете записаться самостоятельно. Возьмите с собой результаты имеющихся обследований."
+          }
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+
+<!--
+=============================================================
+ ИНСТРУКЦИЯ ПО УСТАНОВКЕ
+=============================================================
+
+1. Откройте файл index.html в корне вашего GitHub Pages репозитория
+2. Найдите закрывающий тег </head>
+3. Вставьте весь блок <script type="application/ld+json">...</script> ПЕРЕД </head>
+4. Сохраните и сделайте git push
+
+Проверка:
+- Google Rich Results Test: https://search.google.com/test/rich-results
+- Schema Markup Validator: https://validator.schema.org/
+
+=============================================================
+ ТАКЖЕ ИСПРАВИТЬ в index.html
+=============================================================
+
+1. Telegram ссылка (в шапке и футере):
+   БЫЛО:  href="#"
+   СТАЛО: href="https://t.me/SSVproff_medical_bot"
+
+2. Google Scholar ссылка:
+   БЫЛО:  href="#"
+   СТАЛО: href="https://scholar.google.com/citations?user=ВАSH_ID"
+   (найти свой профиль на scholar.google.com)
+
+3. ResearchGate ссылка:
+   БЫЛО:  href="#"
+   СТАЛО: href="https://www.researchgate.net/profile/Sergiy-Sushkov"
+   (проверить точный URL вашего профиля)
+
+4. Ссылки на услуги (6 карточек):
+   БЫЛО:  href="/about/" (у всех)
+   СТАЛО:
+     Хирургия       → href="/surgery/"
+     Онкохирургия   → href="/oncosurgery/"
+     Гинекология    → href="/gynecology/"
+     Миомэктомия    → href="/myomectomy/"
+     Онко-диагностика → href="/onco-diagnostics/"
+     Профосмотр     → href="/checkup/"
+
+=============================================================
+-->

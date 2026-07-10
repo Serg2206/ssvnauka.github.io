@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- phase2-deploy-2026-07-02 -->
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -55,8 +56,23 @@
   </script>
 
   <link rel="stylesheet" href="styles.css">
+  <!-- Phase 1: scroll animations, Telegram widget, sticky bar, progress bar -->
+  <link rel="stylesheet" href="shared/phase1.css">
+  <style>
+    /* Hero always visible — no scroll animation needed for above-fold content */
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-fadein {
+      animation: heroFadeIn 0.8s ease forwards;
+    }
+  </style>
 </head>
 <body>
+  <!-- Scroll progress bar (Phase 1) -->
+  <div class="p1-progress" id="p1Progress" aria-hidden="true"></div>
+
   <!-- Skip to content -->
   <a href="#main-content" class="skip-link">Перейти к содержимому</a>
 
@@ -120,17 +136,17 @@
 
     <!-- Section: Hero -->
     <section id="hero" class="bg-gradient" style="min-height: 100vh; display: flex; align-items: center; padding-top: 72px;">
-      <div class="container text-center">
-        <span class="pill pill-white reveal" data-i18n="hero.badge">Профессорская хирургия в Харькове</span>
-        <h1 class="reveal reveal-delay-1" style="color: #fff; margin-top: 20px;" data-i18n="hero.title">Профессорская хирургия, онкология и гинекология</h1>
-        <p class="reveal reveal-delay-2" style="color: rgba(255,255,255,0.9); max-width: 700px; margin: 20px auto 0; font-size: 1.125rem;" data-i18n="hero.subtitle">Д-р мед. наук, профессор Сушков С.В. — 40+ лет опыта, 5000+ операций. Индивидуальный подход, современное оборудование, безопасные операции.</p>
-        <div class="reveal reveal-delay-3" style="margin-top: 32px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+      <div class="container text-center hero-fadein">
+        <span class="pill pill-white" data-i18n="hero.badge">Профессорская хирургия в Харькове</span>
+        <h1 style="color: #fff; margin-top: 20px;" data-i18n="hero.title">Профессорская хирургия, онкология и гинекология</h1>
+        <p style="color: rgba(255,255,255,0.9); max-width: 700px; margin: 20px auto 0; font-size: 1.125rem;" data-i18n="hero.subtitle">Д-р мед. наук, профессор Сушков С.В. — 40+ лет опыта, 5000+ операций. Индивидуальный подход, современное оборудование, безопасные операции.</p>
+        <div style="margin-top: 32px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
           <a href="appointment/" class="btn btn-primary btn-large" data-i18n="hero.cta_primary">Записаться на консультацию</a>
           <a href="#about" class="btn btn-white btn-large" data-i18n="hero.cta_secondary">Узнать больше</a>
         </div>
-        <div class="reveal reveal-delay-4" style="margin-top: 24px;">
+        <div style="margin-top: 24px;">
           <a href="tel:+380675707949" style="color: #fff; font-size: 1.125rem; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;" data-i18n="hero.phone">+380 67 570 79 49</a>
-          <p style="color: rgba(255,255,255,0.7); font-size: 0.875rem; margin-top: 8px;" data-i18n="hero.trust_microcopy">Приём по предварительной записи</p>
+          <p style="color: rgba(255,255,255,0.7); font-size: 0.875rem; margin-top: 8px;" data-i18n="hero.trust_microcopy">Приём по предварительной записи · Консультация 2000 грн</p>
         </div>
       </div>
     </section>
@@ -139,30 +155,29 @@
     <section id="stats" class="bg-white" style="padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
       <div class="container">
         <div class="grid-5" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto; text-align: center;">
-          <!-- Stat items -->
-          <div class="reveal">
+          <div class="p1-reveal">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-light); margin: 0 auto 8px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            <div class="text-gradient" style="font-size: 2.25rem; font-weight: 700; line-height: 1;" data-i18n="stats.years_value">40+</div>
+            <div class="text-gradient p1-counter" style="font-size: 2.25rem; font-weight: 700; line-height: 1;" data-target="40" data-suffix="+">40+</div>
             <div class="text-small" style="color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;" data-i18n="stats.years_label">Лет опыта</div>
           </div>
-          <div class="reveal reveal-delay-1">
+          <div class="p1-reveal">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-light); margin: 0 auto 8px;"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
-            <div class="text-gradient" style="font-size: 2.25rem; font-weight: 700; line-height: 1;" data-i18n="stats.operations_value">5000+</div>
+            <div class="text-gradient p1-counter" style="font-size: 2.25rem; font-weight: 700; line-height: 1;" data-target="5000" data-suffix="+">5000+</div>
             <div class="text-small" style="color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;" data-i18n="stats.operations_label">Операций</div>
           </div>
-          <div class="reveal reveal-delay-2">
+          <div class="p1-reveal">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-light); margin: 0 auto 8px;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-            <div class="text-gradient" style="font-size: 2.25rem; font-weight: 700; line-height: 1;" data-i18n="stats.publications_value">121</div>
+            <div class="text-gradient p1-counter" style="font-size: 2.25rem; font-weight: 700; line-height: 1;" data-target="121" data-suffix="">121</div>
             <div class="text-small" style="color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;" data-i18n="stats.publications_label">Публикаций</div>
           </div>
-          <div class="reveal reveal-delay-3">
+          <div class="p1-reveal">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-light); margin: 0 auto 8px;"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-            <div class="text-gradient" style="font-size: 2.25rem; font-weight: 700; line-height: 1;" data-i18n="stats.patents_value">18</div>
+            <div class="text-gradient p1-counter" style="font-size: 2.25rem; font-weight: 700; line-height: 1;" data-target="18" data-suffix="">18</div>
             <div class="text-small" style="color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;" data-i18n="stats.patents_label">Патентов</div>
           </div>
-          <div class="reveal reveal-delay-4">
+          <div class="p1-reveal">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-light); margin: 0 auto 8px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            <div class="text-gradient" style="font-size: 2.25rem; font-weight: 700; line-height: 1;" data-i18n="stats.satisfaction_value">98%</div>
+            <div class="text-gradient p1-counter" style="font-size: 2.25rem; font-weight: 700; line-height: 1;" data-target="98" data-suffix="%">98%</div>
             <div class="text-small" style="color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;" data-i18n="stats.satisfaction_label">Довольных пациентов</div>
           </div>
         </div>
@@ -173,70 +188,84 @@
     <section id="about" class="bg-slate">
       <div class="container">
         <div class="grid-2" style="align-items: center;">
-          <div class="reveal">
+          <div class="p1-reveal">
             <p class="overline" data-i18n="doctor_profile.overline">Ваш врач</p>
             <h2 data-i18n="doctor_profile.name">Профессор Сушков Сергей Валентинович</h2>
             <p style="color: var(--text-light); margin-top: 8px;" data-i18n="doctor_profile.credentials">Д-р мед. наук, профессор | Хирург-онколог | Член EAES</p>
             <p style="margin-top: 16px;" data-i18n="doctor_profile.bio">Пионер лапароскопической хирургии в Харьковском регионе (1995–1997). Заместитель директора по научной работе Института общей и неотложной хирургии им. В.Т. Зайцева НАМН Украины на протяжении 22 лет. 121 публикация, 18 патентов, h-index 6. Ведущий хирург, онкохирург, консультант МЦ «МАРИЯ»</p>
-            <a href="about/" class="card__link" style="margin-top: 20px; display: inline-flex;" data-i18n="doctor_profile.cta">Подробнее о профессоре →</a>
+            <a href="expert/" class="card__link" style="margin-top: 20px; display: inline-flex;" data-i18n="doctor_profile.cta">Экспертная страница профессора →</a>
             <div style="margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
               <span class="text-small" style="color: var(--text-light);">Академические профили:</span>
-              <a href="https://orcid.org/0000-0002-6951-9789" target="_blank" rel="noopener" class="card__link" style="font-size: 0.875rem;" data-i18n="about_page.academic_orcid">ORCID</a>
-              <a href="https://www.scopus.com/authid/detail.uri?authorId=55360196800" target="_blank" rel="noopener" class="card__link" style="font-size: 0.875rem;" data-i18n="about_page.academic_scopus">Scopus</a>
-              <a href="#" target="_blank" rel="noopener" class="card__link" style="font-size: 0.875rem;" data-i18n="about_page.academic_scholar">Google Scholar</a>
-              <a href="#" target="_blank" rel="noopener" class="card__link" style="font-size: 0.875rem;" data-i18n="about_page.academic_researchgate">ResearchGate</a>
+              <a href="https://orcid.org/0000-0002-6951-9789" target="_blank" rel="noopener" class="card__link" style="font-size: 0.875rem;">ORCID</a>
+              <a href="https://www.scopus.com/authid/detail.uri?authorId=55360196800" target="_blank" rel="noopener" class="card__link" style="font-size: 0.875rem;">Scopus</a>
+              <a href="#" target="_blank" rel="noopener" class="card__link" style="font-size: 0.875rem;">Google Scholar</a>
+              <a href="#" target="_blank" rel="noopener" class="card__link" style="font-size: 0.875rem;">ResearchGate</a>
             </div>
           </div>
-          <div class="reveal reveal-delay-1">
-            <img src="images/doctor-portrait.jpg" alt="Профессор Сушков С.В." style="border-radius: 16px; box-shadow: var(--shadow-lg); width: 100%; max-width: 400px; margin: 0 auto; display: block;" data-i18n-alt="doctor_profile.name">
+          <div class="p1-reveal">
+            <img src="images/doctor-portrait.jpg" alt="Профессор Сушков С.В." style="border-radius: 16px; box-shadow: var(--shadow-lg); width: 100%; max-width: 400px; margin: 0 auto; display: block;">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Section: Services -->
+    <!-- Section: Services / Specializations -->
     <section id="services" class="bg-white">
       <div class="container">
-        <h2 class="section-title reveal" data-i18n="services.title">Направления</h2>
-        <p class="section-subtitle reveal" data-i18n="services.subtitle">Современная хирургия, онкология и гинекология</p>
+        <h2 class="section-title p1-reveal" data-i18n="services.title">Направления</h2>
+        <p class="section-subtitle p1-reveal" data-i18n="services.subtitle">Современная хирургия, онкология и гинекология</p>
         <div class="grid-3">
-          <!-- Service cards — page worker to fill in detailed content -->
-          <article class="card reveal">
-            <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg></div>
-            <h3 class="card__title" data-i18n="services.surgery_title">Хирургия</h3>
-            <p class="card__text" data-i18n="services.surgery_desc">Лапароскопия, малоинвазивная хирургия. Удаление желчного пузыря, аппендицит, грыжи и другие операции.</p>
-            <a href="about/" class="card__link" data-i18n="services.read_more">Подробнее →</a>
+          <article class="card p1-reveal">
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+            </div>
+            <h3 class="card__title">Хирургия</h3>
+            <p class="card__text">Лапароскопия Karl Storz Full HD. Удаление желчного пузыря, грыжи, аппендицит — через проколы до 1 см. Выписка на 2–3-й день.</p>
+            <a href="surgery/" class="card__link">Подробнее о хирургии →</a>
           </article>
-          <article class="card reveal reveal-delay-1">
-            <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-            <h3 class="card__title" data-i18n="services.oncosurgery_title">Онкохирургия</h3>
-            <p class="card__text" data-i18n="services.oncosurgery_desc">Лечение рака желудка, кишечника, молочной железы, женских органов. Раннее выявление и комплексная терапия.</p>
-            <a href="about/" class="card__link" data-i18n="services.read_more">Подробнее →</a>
+          <article class="card p1-reveal">
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+            <h3 class="card__title">Онкохирургия</h3>
+            <p class="card__text">Хирургическое лечение рака желудка, кишечника, молочной железы, женских органов. Гистологическая верификация, комплексный онкологический протокол.</p>
+            <a href="oncosurgery/" class="card__link">Подробнее об онкохирургии →</a>
           </article>
-          <article class="card reveal reveal-delay-2">
-            <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h.01"/><path d="M15 12h.01"/><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><path d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10z"/></svg></div>
-            <h3 class="card__title" data-i18n="services.gynecology_title">Гинекология</h3>
-            <p class="card__text" data-i18n="services.gynecology_desc">Профессорская консультация, планирование беременности, лечение женских заболеваний, профилактика.</p>
-            <a href="about/" class="card__link" data-i18n="services.read_more">Подробнее →</a>
+          <article class="card p1-reveal">
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h.01"/><path d="M15 12h.01"/><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><path d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10z"/></svg>
+            </div>
+            <h3 class="card__title">Гинекология</h3>
+            <p class="card__text">Лапароскопические и гистероскопические операции. Лечение бесплодия, кист яичников, эндометриоза. Профессорская консультация.</p>
+            <a href="gynecology/" class="card__link">Подробнее о гинекологии →</a>
           </article>
-          <article class="card reveal">
-            <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-            <h3 class="card__title" data-i18n="services.myomectomy_title">Миомэктомия</h3>
-            <p class="card__text" data-i18n="services.myomectomy_desc">Удаление миомы матки с сохранением органа. Планирование беременности после операции.</p>
-            <a href="about/" class="card__link" data-i18n="services.read_more">Подробнее →</a>
+          <article class="card p1-reveal">
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3 class="card__title">Миомэктомия</h3>
+            <p class="card__text">Удаление миомы матки с полным сохранением органа и репродуктивной функции. Оперируем узлы любых размеров и локализаций.</p>
+            <a href="myomectomy/" class="card__link">Подробнее о миомэктомии →</a>
           </article>
-          <article class="card reveal reveal-delay-1">
-            <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 21a8 8 0 0 1 13.292-6"/><circle cx="10" cy="8" r="5"/><path d="M22 21a8 8 0 0 0-13.292-6"/><path d="M16 8h6"/><path d="M19 5v6"/></svg></div>
-            <h3 class="card__title" data-i18n="services.diagnostics_title">Онко-диагностика</h3>
-            <p class="card__text" data-i18n="services.diagnostics_desc">Скрининг, раннее выявление рака. УЗИ, маммография, кольпоскопия, лабораторные исследования.</p>
-            <a href="about/" class="card__link" data-i18n="services.read_more">Подробнее →</a>
+          <article class="card p1-reveal">
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 21a8 8 0 0 1 13.292-6"/><circle cx="10" cy="8" r="5"/><path d="M22 21a8 8 0 0 0-13.292-6"/><path d="M16 8h6"/><path d="M19 5v6"/></svg>
+            </div>
+            <h3 class="card__title">Онко-диагностика</h3>
+            <p class="card__text">Скрининг и раннее выявление онкологии. УЗИ экспертного класса, маркёры, кольпоскопия. Профессорская интерпретация результатов.</p>
+            <a href="onco-diagnostics/" class="card__link">Подробнее о диагностике →</a>
           </article>
-          <article class="card reveal reveal-delay-2">
-            <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-            <h3 class="card__title" data-i18n="services.checkup_title">Профосмотр</h3>
-            <p class="card__text" data-i18n="services.checkup_desc">Медицинские осмотры, справки, комплексное обследование. Диагностика для профилактики заболеваний.</p>
-            <a href="about/" class="card__link" data-i18n="services.read_more">Подробнее →</a>
+          <article class="card p1-reveal">
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <h3 class="card__title">Профосмотр и справки</h3>
+            <p class="card__text">Медицинские осмотры для работы, вождения, учёбы. Комплексное обследование за один визит. Быстрая выдача документов.</p>
+            <a href="checkup/" class="card__link">Подробнее о профосмотре →</a>
           </article>
+        </div>
+        <div class="text-center p1-reveal" style="margin-top: 32px;">
+          <a href="expert/" class="btn btn-secondary">Экспертная консультация профессора →</a>
         </div>
       </div>
     </section>
@@ -244,67 +273,193 @@
     <!-- Section: Why Us -->
     <section id="why-us" class="bg-slate">
       <div class="container">
-        <h2 class="section-title reveal" data-i18n="why_us.title">Почему доверяют MARIA?</h2>
-        <p class="section-subtitle reveal" data-i18n="why_us.subtitle">Медицинский центр MARIA — это команда высококвалифицированных специалистов с многолетним опытом.</p>
+        <h2 class="section-title p1-reveal" data-i18n="why_us.title">Почему доверяют MARIA?</h2>
+        <p class="section-subtitle p1-reveal" data-i18n="why_us.subtitle">Медицинский центр MARIA — это команда высококвалифицированных специалистов с многолетним опытом.</p>
         <div class="grid-4">
-          <div class="reveal">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-            <h4 style="margin-top: 12px;" data-i18n="why_us.professor_title">Профессорский уровень</h4>
-            <p class="text-small" style="color: var(--text-light); margin-top: 8px;" data-i18n="why_us.professor_desc">Врачи с учёными степенями и многолетним опытом практики. Постоянное повышение квалификации.</p>
+          <div class="p1-reveal">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            <h4 style="margin-top: 12px;">Профессорский уровень</h4>
+            <p class="text-small" style="color: var(--text-light); margin-top: 8px;">Д-р мед. наук, профессор, h-index 6, 121 публикация. Диагностику ведёт тот же хирург, что и оперирует — без информационных потерь.</p>
           </div>
-          <div class="reveal reveal-delay-1">
+          <div class="p1-reveal">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h6"/><path d="M22 12h-6"/><path d="M12 2v6"/><path d="M12 22v-6"/><circle cx="12" cy="12" r="8"/></svg>
-            <h4 style="margin-top: 12px;" data-i18n="why_us.equipment_title">Современное оборудование</h4>
-            <p class="text-small" style="color: var(--text-light); margin-top: 8px;" data-i18n="why_us.equipment_desc">Лапароскопическая стойка, аппарат УЗИ экспертного класса, современная лаборатория.</p>
+            <h4 style="margin-top: 12px;">Karl Storz Full HD</h4>
+            <p class="text-small" style="color: var(--text-light); margin-top: 8px;">Лапароскопическая стойка немецкого производства, аппарат УЗИ экспертного класса. Видит то, что пропустит обычная клиника.</p>
           </div>
-          <div class="reveal reveal-delay-2">
+          <div class="p1-reveal">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            <h4 style="margin-top: 12px;" data-i18n="why_us.safety_title">Безопасность и комфорт</h4>
-            <p class="text-small" style="color: var(--text-light); margin-top: 8px;" data-i18n="why_us.safety_desc">Щадящие малоинвазивные методы, короткий период реабилитации, комфортные палаты.</p>
+            <h4 style="margin-top: 12px;">Миниинвазивность</h4>
+            <p class="text-small" style="color: var(--text-light); margin-top: 8px;">Большинство операций — через 3 прокола до 1 см. Косметический шов, минимальная кровопотеря, выписка на 2–4-й день.</p>
           </div>
-          <div class="reveal reveal-delay-3">
+          <div class="p1-reveal">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-            <h4 style="margin-top: 12px;" data-i18n="why_us.comprehensive_title">Комплексный подход</h4>
-            <p class="text-small" style="color: var(--text-light); margin-top: 8px;" data-i18n="why_us.comprehensive_desc">От диагностики до реабилитации — полный цикл лечения под наблюдением одной команды.</p>
+            <h4 style="margin-top: 12px;">Полный цикл</h4>
+            <p class="text-small" style="color: var(--text-light); margin-top: 8px;">Консультация → диагностика → операция → реабилитация под наблюдением одного специалиста. Без переводов и очередей.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Section: Articles Preview -->
-    <section id="articles" class="bg-white">
+    <!-- ================================================================ -->
+    <!-- Section: Patient Reviews (NEW — Phase 2)                         -->
+    <!-- ================================================================ -->
+    <section id="reviews" class="bg-white">
       <div class="container">
-        <h2 class="section-title reveal" data-i18n="articles_preview.title">Полезные статьи от профессора</h2>
-        <p class="section-subtitle reveal" data-i18n="articles_preview.subtitle">Читайте экспертные материалы о здоровье, диагностике и лечении</p>
-        <!-- Page worker: insert 3 article cards here -->
+        <h2 class="section-title p1-reveal">Отзывы пациентов</h2>
+        <p class="section-subtitle p1-reveal">Реальные истории людей, которые доверили нам своё здоровье</p>
+
+        <div class="grid-3" style="margin-bottom: 12px;">
+
+          <!-- Review 1 -->
+          <article class="card p1-reveal" style="position: relative;">
+            <div style="display: flex; gap: 4px; margin-bottom: 12px;" aria-label="Оценка 5 из 5">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <blockquote style="margin: 0; padding: 0; font-style: italic; color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem;">
+              «На третий день после операции я ехала домой на троллейбусе — сама, без посторонней помощи. Не верила, что так бывает. В другой больнице говорили про десять дней в стационаре. Шрам почти не виден.»
+            </blockquote>
+            <footer style="margin-top: 16px; border-top: 1px solid var(--border); padding-top: 12px;">
+              <div style="font-weight: 600; font-size: 0.9rem;">Татьяна М., 52 года</div>
+              <div style="font-size: 0.8rem; color: var(--text-light); margin-top: 2px;">Лапароскопическая холецистэктомия · март 2025</div>
+            </footer>
+          </article>
+
+          <!-- Review 2 -->
+          <article class="card p1-reveal" style="position: relative;">
+            <div style="display: flex; gap: 4px; margin-bottom: 12px;" aria-label="Оценка 5 из 5">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <blockquote style="margin: 0; padding: 0; font-style: italic; color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem;">
+              «Четыре миомы, самая большая — 7 сантиметров. Боялась, что матку придётся удалить. Сергей Валентинович убрал все четыре, матку оставил. Через пятнадцать месяцев я родила дочь. Это невозможно переоценить.»
+            </blockquote>
+            <footer style="margin-top: 16px; border-top: 1px solid var(--border); padding-top: 12px;">
+              <div style="font-weight: 600; font-size: 0.9rem;">Наталья В., 34 года</div>
+              <div style="font-size: 0.8rem; color: var(--text-light); margin-top: 2px;">Миомэктомия с сохранением матки · сентябрь 2024</div>
+            </footer>
+          </article>
+
+          <!-- Review 3 -->
+          <article class="card p1-reveal" style="position: relative;">
+            <div style="display: flex; gap: 4px; margin-bottom: 12px;" aria-label="Оценка 5 из 5">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <blockquote style="margin: 0; padding: 0; font-style: italic; color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem;">
+              «Диагноз поставили в августе. Оперировали в октябре. Сейчас — уже май следующего года, и я живу, работаю, сажаю огород. Сергей Валентинович сказал тогда: "Мы успели." Эти слова я запомнила навсегда.»
+            </blockquote>
+            <footer style="margin-top: 16px; border-top: 1px solid var(--border); padding-top: 12px;">
+              <div style="font-weight: 600; font-size: 0.9rem;">Людмила К., 58 лет</div>
+              <div style="font-size: 0.8rem; color: var(--text-light); margin-top: 2px;">Онкохирургия · октябрь 2024</div>
+            </footer>
+          </article>
+
+          <!-- Review 4 -->
+          <article class="card p1-reveal" style="position: relative;">
+            <div style="display: flex; gap: 4px; margin-bottom: 12px;" aria-label="Оценка 5 из 5">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <blockquote style="margin: 0; padding: 0; font-style: italic; color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem;">
+              «Привезли скорой в три ночи с перитонитом. Сказали — ещё бы несколько часов... Выписали на четвёртый день. На животе — три точки, не шрамы даже. Хирург — настоящий профессионал, без лишних слов и паники.»
+            </blockquote>
+            <footer style="margin-top: 16px; border-top: 1px solid var(--border); padding-top: 12px;">
+              <div style="font-weight: 600; font-size: 0.9rem;">Дмитрий С., 45 лет</div>
+              <div style="font-size: 0.8rem; color: var(--text-light); margin-top: 2px;">Аппендицит, перитонит · январь 2025</div>
+            </footer>
+          </article>
+
+          <!-- Review 5 -->
+          <article class="card p1-reveal" style="position: relative;">
+            <div style="display: flex; gap: 4px; margin-bottom: 12px;" aria-label="Оценка 5 из 5">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <blockquote style="margin: 0; padding: 0; font-style: italic; color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem;">
+              «В другой клинике сказали — большой разрез, три недели постельного режима. Здесь — три прокола, через неделю вышел на работу. Коллеги не поняли, что я вообще делал операцию. Не сразу поверил сам.»
+            </blockquote>
+            <footer style="margin-top: 16px; border-top: 1px solid var(--border); padding-top: 12px;">
+              <div style="font-weight: 600; font-size: 0.9rem;">Андрей Г., 61 год</div>
+              <div style="font-size: 0.8rem; color: var(--text-light); margin-top: 2px;">Лапароскопическое лечение грыжи · февраль 2025</div>
+            </footer>
+          </article>
+
+          <!-- Review 6 -->
+          <article class="card p1-reveal" style="position: relative;">
+            <div style="display: flex; gap: 4px; margin-bottom: 12px;" aria-label="Оценка 5 из 5">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <blockquote style="margin: 0; padding: 0; font-style: italic; color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem;">
+              «Пришла с подозрением на рак — была в панике. Сергей Валентинович потратил почти час, объяснил каждый анализ по-человечески, без жаргона. Оказалось — доброкачественная киста. Он умеет не только оперировать, но и говорить с людьми.»
+            </blockquote>
+            <footer style="margin-top: 16px; border-top: 1px solid var(--border); padding-top: 12px;">
+              <div style="font-weight: 600; font-size: 0.9rem;">Ирина Ш., 39 лет</div>
+              <div style="font-size: 0.8rem; color: var(--text-light); margin-top: 2px;">Онкологическая консультация · апрель 2025</div>
+            </footer>
+          </article>
+
+        </div>
+
+        <div class="text-center p1-reveal" style="margin-top: 32px;">
+          <a href="reviews/" class="btn btn-secondary">Все отзывы пациентов →</a>
+        </div>
+      </div>
+    </section>
+    <!-- ================================================================ -->
+
+    <!-- Section: Articles Preview -->
+    <section id="articles" class="bg-slate">
+      <div class="container">
+        <h2 class="section-title p1-reveal">Полезные статьи от профессора</h2>
+        <p class="section-subtitle p1-reveal">Читайте экспертные материалы о здоровье, диагностике и лечении</p>
         <div class="grid-3" style="margin-bottom: 32px;">
-          <a href="articles/laparoscopic-cholecystectomy.html" class="card reveal" style="text-decoration: none; color: inherit; display: block;">
-            <div style="aspect-ratio: 16/9; background: var(--gradient-hero); border-radius: 12px 12px 0 0; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="articles_page.category_surgery">Хирургия</div>
+          <a href="articles/laparoscopic-cholecystectomy.html" class="card p1-reveal" style="text-decoration: none; color: inherit; display: block;">
+            <div style="aspect-ratio: 16/9; background: var(--gradient-hero); border-radius: 12px 12px 0 0; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em;">Хирургия</div>
             <div style="padding: 20px;">
-              <h4 style="margin-bottom: 8px; font-size: 1.125rem;" data-i18n="articles_page.article_1_title">Лапароскопическая холецистэктомия в Харькове</h4>
-              <p class="text-small" style="color: var(--text-light); margin-bottom: 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;" data-i18n="articles_page.article_1_excerpt">Современные методы удаления желчного пузыря с минимальными разрезами. Восстановление за 3–7 дней.</p>
+              <h4 style="margin-bottom: 8px; font-size: 1.125rem;">Лапароскопическая холецистэктомия в Харькове</h4>
+              <p class="text-small" style="color: var(--text-light); margin-bottom: 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">Современные методы удаления желчного пузыря с минимальными разрезами. Восстановление за 3–7 дней.</p>
               <span class="text-small" style="color: var(--text-light);">15 марта 2025 · 5 мин</span>
             </div>
           </a>
-          <a href="articles/oncology-screening.html" class="card reveal reveal-delay-1" style="text-decoration: none; color: inherit; display: block;">
-            <div style="aspect-ratio: 16/9; background: var(--gradient-hero); border-radius: 12px 12px 0 0; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="articles_page.category_oncology">Онкология</div>
+          <a href="articles/oncology-screening.html" class="card p1-reveal" style="text-decoration: none; color: inherit; display: block;">
+            <div style="aspect-ratio: 16/9; background: var(--gradient-hero); border-radius: 12px 12px 0 0; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em;">Онкология</div>
             <div style="padding: 20px;">
-              <h4 style="margin-bottom: 8px; font-size: 1.125rem;" data-i18n="articles_page.article_2_title">Онкологическая хирургия в Харькове</h4>
-              <p class="text-small" style="color: var(--text-light); margin-bottom: 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;" data-i18n="articles_page.article_2_excerpt">Лечение онкологических заболеваний: рак желудка, кишечника, молочной железы, женских органов.</p>
+              <h4 style="margin-bottom: 8px; font-size: 1.125rem;">Онкологическая хирургия в Харькове</h4>
+              <p class="text-small" style="color: var(--text-light); margin-bottom: 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">Лечение онкологических заболеваний: рак желудка, кишечника, молочной железы, женских органов.</p>
               <span class="text-small" style="color: var(--text-light);">10 марта 2025 · 7 мин</span>
             </div>
           </a>
-          <a href="articles/myomectomy.html" class="card reveal reveal-delay-2" style="text-decoration: none; color: inherit; display: block;">
-            <div style="aspect-ratio: 16/9; background: var(--gradient-hero); border-radius: 12px 12px 0 0; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="articles_page.category_gynecology">Гинекология</div>
+          <a href="articles/myomectomy.html" class="card p1-reveal" style="text-decoration: none; color: inherit; display: block;">
+            <div style="aspect-ratio: 16/9; background: var(--gradient-hero); border-radius: 12px 12px 0 0; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em;">Гинекология</div>
             <div style="padding: 20px;">
-              <h4 style="margin-bottom: 8px; font-size: 1.125rem;" data-i18n="articles_page.article_3_title">Гинекологическая консультация в Харькове</h4>
-              <p class="text-small" style="color: var(--text-light); margin-bottom: 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;" data-i18n="articles_page.article_3_excerpt">Профилактика и лечение гинекологических заболеваний. Планирование беременности.</p>
+              <h4 style="margin-bottom: 8px; font-size: 1.125rem;">Гинекологическая консультация в Харькове</h4>
+              <p class="text-small" style="color: var(--text-light); margin-bottom: 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">Профилактика и лечение гинекологических заболеваний. Планирование беременности.</p>
               <span class="text-small" style="color: var(--text-light);">5 марта 2025 · 4 мин</span>
             </div>
           </a>
         </div>
-        <div class="text-center reveal">
-          <a href="articles/" class="btn btn-secondary" data-i18n="articles_preview.cta">Все статьи →</a>
+        <div class="text-center p1-reveal">
+          <a href="articles/" class="btn btn-secondary">Все статьи →</a>
         </div>
       </div>
     </section>
@@ -312,16 +467,28 @@
     <!-- Section: CTA -->
     <section id="cta" class="bg-gradient">
       <div class="container text-center">
-        <h2 class="reveal" style="color: #fff;" data-i18n="cta_section.title">Запишитесь на консультацию</h2>
-        <p class="reveal reveal-delay-1" style="color: rgba(255,255,255,0.9); max-width: 700px; margin: 16px auto 0;" data-i18n="cta_section.subtitle">Получите профессиональную консультацию опытного хирурга-онколога. Индивидуальный подход, современная диагностика, эффективное лечение.</p>
-        <div class="reveal reveal-delay-2" style="margin-top: 28px;">
-          <a href="appointment/" class="btn btn-primary btn-large" style="background: #fff; color: var(--primary);" data-i18n="cta_section.btn">Записаться на приём</a>
+        <h2 class="p1-reveal" style="color: #fff;">Запишитесь на консультацию</h2>
+        <p class="p1-reveal" style="color: rgba(255,255,255,0.9); max-width: 700px; margin: 16px auto 0;">Получите профессиональную консультацию опытного хирурга-онколога. Индивидуальный подход, современная диагностика, эффективное лечение. Стоимость консультации — 2000 грн.</p>
+        <div class="p1-reveal" style="margin-top: 28px;">
+          <a href="appointment/" class="btn btn-primary btn-large" style="background: #fff; color: var(--primary);">Записаться на приём</a>
         </div>
-        <div class="reveal reveal-delay-3" style="margin-top: 24px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-          <a href="tel:+380675707949" class="contact-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> <span data-i18n="cta_section.phone">+380 67 570 79 49</span></a>
-          <a href="#" class="contact-chip" target="_blank"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.8 7.5l-3.5-2.5a2 2 0 0 0-2.5.2l-2.5 2.5a2 2 0 0 0-.5 2.5l3.5 2.5a2 2 0 0 0 2.5-.2l2.5-2.5a2 2 0 0 0 .5-2.5z"/><path d="M12 12l-3-2"/><path d="M15 10l-3 2"/></svg> <span data-i18n="cta_section.telegram">Telegram</span></a>
-          <a href="https://wa.me/380675707949" class="contact-chip" target="_blank"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> <span data-i18n="cta_section.whatsapp">WhatsApp</span></a>
-          <a href="viber://chat?number=+380675707949" class="contact-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="7" ry="7"/><path d="M12 6v4"/><path d="M12 14v.01"/></svg> <span data-i18n="cta_section.viber">Viber</span></a>
+        <div class="p1-reveal" style="margin-top: 24px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <a href="tel:+380675707949" class="contact-chip">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>+380 67 570 79 49</span>
+          </a>
+          <a href="https://t.me/SSVproff_medical_bot" class="contact-chip" target="_blank">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            <span>Telegram-бот</span>
+          </a>
+          <a href="https://wa.me/380675707949" class="contact-chip" target="_blank">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <span>WhatsApp</span>
+          </a>
+          <a href="viber://chat?number=+380675707949" class="contact-chip">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="7" ry="7"/><path d="M12 6v4"/><path d="M12 14v.01"/></svg>
+            <span>Viber</span>
+          </a>
         </div>
       </div>
     </section>
@@ -329,9 +496,9 @@
     <!-- Section: Map -->
     <section id="map" class="bg-white">
       <div class="container">
-        <h2 class="section-title reveal" data-i18n="map.title">Как нас найти</h2>
-        <p class="text-center reveal" style="color: var(--text-light); margin-bottom: 24px;" data-i18n="map.address">Медицинский центр MARIA, Харьков, Украина</p>
-        <div class="reveal" style="border-radius: 12px; overflow: hidden;">
+        <h2 class="section-title p1-reveal">Как нас найти</h2>
+        <p class="text-center p1-reveal" style="color: var(--text-light); margin-bottom: 24px;">Медицинский центр MARIA, ул. Сирохинская, 7-Б, Харьков</p>
+        <div class="p1-reveal" style="border-radius: 12px; overflow: hidden;">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d164153.35437974895!2d36.14574265!3d49.99472765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4127a09f63ab0f2b%3A0x2d469ae7479f38cd!2sKharkiv%2C%20Kharkiv%20Oblast%2C%20Ukraine!5e0!3m2!1sen!2sua!4v1700000000000!5m2!1sen!2sua" width="100%" height="400" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="MARIA Medical Center location map"></iframe>
         </div>
       </div>
@@ -347,69 +514,77 @@
         <div>
           <div class="footer__logo">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 19h8a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z"/><path d="M12 11v.01"/><path d="M12 8v.01"/><path d="M12 14v.01"/></svg>
-            <span data-i18n="footer.brand">MARIA MEDICAL CENTER</span>
+            <span>MARIA MEDICAL CENTER</span>
           </div>
-          <p class="footer__tagline" data-i18n="footer.tagline">Профессорская хирургия, онкология и гинекология в Харькове. 40+ лет опыта.</p>
+          <p class="footer__tagline">Профессорская хирургия, онкология и гинекология в Харькове. 40+ лет опыта.</p>
           <div class="footer__socials">
-            <a href="#" class="footer__social-link" aria-label="Telegram" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.8 7.5l-3.5-2.5a2 2 0 0 0-2.5.2l-2.5 2.5a2 2 0 0 0-.5 2.5l3.5 2.5a2 2 0 0 0 2.5-.2l2.5-2.5a2 2 0 0 0 .5-2.5z"/><path d="M12 12l-3-2"/><path d="M15 10l-3 2"/></svg></a>
-            <a href="https://wa.me/380675707949" class="footer__social-link" aria-label="WhatsApp" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
-            <a href="viber://chat?number=+380675707949" class="footer__social-link" aria-label="Viber"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="7" ry="7"/><path d="M12 6v4"/><path d="M12 14v.01"/></svg></a>
-            <a href="mailto:ssvnauka@gmail.com" class="footer__social-link" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+            <a href="https://t.me/SSVproff_medical_bot" class="footer__social-link" aria-label="Telegram" target="_blank">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </a>
+            <a href="https://wa.me/380675707949" class="footer__social-link" aria-label="WhatsApp" target="_blank">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </a>
+            <a href="viber://chat?number=+380675707949" class="footer__social-link" aria-label="Viber">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="7" ry="7"/><path d="M12 6v4"/><path d="M12 14v.01"/></svg>
+            </a>
+            <a href="mailto:ssvnauka@gmail.com" class="footer__social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
           </div>
         </div>
         <!-- Column 2: Services -->
         <div>
-          <h4 class="footer__col-title" data-i18n="footer.services_title">Услуги</h4>
+          <h4 class="footer__col-title">Услуги</h4>
           <ul class="footer__links">
-            <li><a href="about/" class="footer__link" data-i18n="footer.service_surgery">Хирургия</a></li>
-            <li><a href="about/" class="footer__link" data-i18n="footer.service_oncosurgery">Онкохирургия</a></li>
-            <li><a href="about/" class="footer__link" data-i18n="footer.service_gynecology">Гинекология</a></li>
-            <li><a href="about/" class="footer__link" data-i18n="footer.service_myomectomy">Миомэктомия</a></li>
-            <li><a href="about/" class="footer__link" data-i18n="footer.service_diagnostics">Онко-диагностика</a></li>
-            <li><a href="about/" class="footer__link" data-i18n="footer.service_checkup">Профосмотр</a></li>
+            <li><a href="surgery/" class="footer__link">Хирургия</a></li>
+            <li><a href="oncosurgery/" class="footer__link">Онкохирургия</a></li>
+            <li><a href="gynecology/" class="footer__link">Гинекология</a></li>
+            <li><a href="myomectomy/" class="footer__link">Миомэктомия</a></li>
+            <li><a href="onco-diagnostics/" class="footer__link">Онко-диагностика</a></li>
+            <li><a href="checkup/" class="footer__link">Профосмотр</a></li>
           </ul>
         </div>
         <!-- Column 3: Quick Links -->
         <div>
-          <h4 class="footer__col-title" data-i18n="footer.quick_links_title">Быстрые ссылки</h4>
+          <h4 class="footer__col-title">Быстрые ссылки</h4>
           <ul class="footer__links">
-            <li><a href="/" class="footer__link" data-i18n="footer.link_home">Главная</a></li>
-            <li><a href="about/" class="footer__link" data-i18n="footer.link_about">О профессоре</a></li>
-            <li><a href="articles/" class="footer__link" data-i18n="footer.link_articles">Статьи</a></li>
-            <li><a href="reviews/" class="footer__link" data-i18n="footer.link_reviews">Отзывы</a></li>
-            <li><a href="appointment/" class="footer__link" data-i18n="footer.link_appointment">Запись на приём</a></li>
-            <li><a href="privacy-policy.html" class="footer__link" data-i18n="footer.link_privacy">Политика конфиденциальности</a></li>
-            <li><a href="cookie-policy.html" class="footer__link" data-i18n="footer.link_cookies">Cookie Policy</a></li>
-            <li><a href="medical-disclaimer.html" class="footer__link" data-i18n="footer.link_disclaimer">Медицинский дисклеймер</a></li>
+            <li><a href="/" class="footer__link">Главная</a></li>
+            <li><a href="about/" class="footer__link">О центре</a></li>
+            <li><a href="expert/" class="footer__link">Профессор Сушков</a></li>
+            <li><a href="articles/" class="footer__link">Статьи</a></li>
+            <li><a href="reviews/" class="footer__link">Отзывы</a></li>
+            <li><a href="appointment/" class="footer__link">Запись на приём</a></li>
+            <li><a href="privacy-policy.html" class="footer__link">Политика конфиденциальности</a></li>
+            <li><a href="medical-disclaimer.html" class="footer__link">Медицинский дисклеймер</a></li>
           </ul>
         </div>
         <!-- Column 4: Contact -->
         <div>
-          <h4 class="footer__col-title" data-i18n="footer.contact_title">Контакты</h4>
+          <h4 class="footer__col-title">Контакты</h4>
           <div class="footer__contact-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span data-i18n="footer.address">вул. Сірохінська, Харьков, Харьковская область, 61000</span>
+            <span>ул. Сирохинская, 7-Б, Харьков</span>
           </div>
           <div class="footer__contact-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <a href="tel:+380675707949" data-i18n="footer.phone1">+380 67 570 79 49</a>
+            <a href="tel:+380675707949">+380 67 570 79 49</a>
           </div>
           <div class="footer__contact-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <a href="mailto:ssvnauka@gmail.com" data-i18n="footer.email">ssvnauka@gmail.com</a>
+            <a href="mailto:ssvnauka@gmail.com">ssvnauka@gmail.com</a>
           </div>
           <div class="footer__contact-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span data-i18n="footer.hours">По предварительной записи</span>
+            <span>По предварительной записи</span>
           </div>
         </div>
       </div>
       <div class="footer__legal">
-        <p data-i18n="footer.copyright">© 2025 MARIA Medical Center. Все права защищены.</p>
+        <p>© 2026 MARIA Medical Center. Все права защищены.</p>
         <p style="margin-top: 8px;">
-          <a href="privacy-policy.html" data-i18n="footer.privacy">Политика конфиденциальности</a> |
-          <a href="cookie-policy.html" data-i18n="footer.cookies">Cookie Policy</a> |
-          <a href="medical-disclaimer.html" data-i18n="footer.disclaimer">Медицинский дисклеймер</a>
+          <a href="privacy-policy.html">Политика конфиденциальности</a> |
+          <a href="cookie-policy.html">Cookie Policy</a> |
+          <a href="medical-disclaimer.html">Медицинский дисклеймер</a>
         </p>
       </div>
     </div>
@@ -435,7 +610,7 @@
     "email": "ssvnauka@gmail.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "вул. Сірохінська",
+      "streetAddress": "вул. Сірохінська, 7-Б",
       "addressLocality": "Kharkiv",
       "addressRegion": "Kharkiv Oblast",
       "postalCode": "61000",
@@ -478,7 +653,6 @@
     }
   }
   </script>
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -489,7 +663,7 @@
         "name": "Сколько стоит консультация профессора?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Консультация профессора Сушкова С.В. стоит 500 грн. Оплата производится в медицинском центре MARIA в Харькове. После онлайн-оплаты мы свяжемся с вами в течение 1 часа для согласования времени приёма."
+          "text": "Консультация профессора Сушкова С.В. стоит 2000 грн. Запись по телефону +380 67 570 79 49 или через Telegram-бот @SSVproff_medical_bot."
         }
       },
       {
@@ -505,7 +679,7 @@
         "name": "Где находится медицинский центр MARIA?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Медицинский центр MARIA расположен в Харькове, Украина. Точный адрес: ул. Сирохинская, Харьков, Харьковская область, 61000. Приём ведётся по предварительной записи."
+          "text": "Медицинский центр MARIA расположен по адресу: ул. Сирохинская, 7-Б, Харьков, Украина. Приём ведётся по предварительной записи."
         }
       },
       {
@@ -513,13 +687,21 @@
         "name": "Как подготовиться к консультации?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Возьмите с собой паспорт, результаты предыдущих анализов и исследований (если есть), список принимаемых лекарств. Необходимость приходить натощак зависит от цели приёма — уточните при записи. Консультация длится обычно 30–45 минут."
+          "text": "Возьмите с собой паспорт, результаты предыдущих анализов и исследований (если есть), список принимаемых лекарств. Консультация длится 30–50 минут. Необходимость приходить натощак зависит от цели приёма — уточните при записи."
         }
       }
     ]
   }
   </script>
 
+  <!-- Sticky appointment bar (Phase 1) -->
+  <div class="p1-sticky-bar" id="p1StickyBar" aria-hidden="true">
+    <span>Профессор Сушков — консультация 2000 грн</span>
+    <a href="tel:+380675707949" class="p1-sticky-bar__btn">+380 67 570 79 49</a>
+    <a href="appointment/" class="p1-sticky-bar__btn p1-sticky-bar__btn--primary">Записаться</a>
+    <button class="p1-sticky-bar__close" id="p1StickyClose" aria-label="Закрыть">×</button>
+  </div>
+
   <script src="scripts.js"></script>
-</body>
-</html>
+  <!-- Phase 1: IntersectionObserver animations, counters, Telegram button -->
+  <script src="shared/pha

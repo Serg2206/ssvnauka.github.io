@@ -1,472 +1,328 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Отзывы пациентов профессора Сушкова С.В. Поделитесь своим опытом лечения в МЦ MARIA.">
-  <meta name="keywords" content="отзывы, пациенты, профессор Сушков, хирург, онколог, Харьков, MARIA">
-  <meta name="author" content="Prof. Sushkov Sergey Valentinovich">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0d9488">
-  <link rel="canonical" href="https://ssvnauka.com/reviews/">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&#1054;&#1090;&#1079;&#1099;&#1074;&#1099; &#1087;&#1072;&#1094;&#1080;&#1077;&#1085;&#1090;&#1086;&#1074; &#1087;&#1088;&#1086;&#1092;&#1077;&#1089;&#1089;&#1086;&#1088;&#1072; &#1057;&#1091;&#1096;&#1082;&#1086;&#1074;&#1072; — &#1052;&#1062; MARIA &#1061;&#1072;&#1088;&#1100;&#1082;&#1086;&#1074;</title>
+  <meta name="description" content="&#1054;&#1090;&#1079;&#1099;&#1074;&#1099; &#1087;&#1072;&#1094;&#1080;&#1077;&#1085;&#1090;&#1086;&#1074; &#1087;&#1088;&#1086;&#1092;&#1077;&#1089;&#1089;&#1086;&#1088;&#1072; &#1057;&#1091;&#1096;&#1082;&#1086;&#1074;&#1072; &#1057;.&#1042;. &#1056;&#1077;&#1072;&#1083;&#1100;&#1085;&#1099;&#1077; &#1080;&#1089;&#1090;&#1086;&#1088;&#1080;&#1080; &#1074;&#1099;&#1079;&#1076;&#1086;&#1088;&#1086;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;. &#1061;&#1080;&#1088;&#1091;&#1088;&#1075;&#1080;&#1103;, &#1086;&#1085;&#1082;&#1086;&#1083;&#1086;&#1075;&#1080;&#1103;, &#1075;&#1080;&#1085;&#1077;&#1082;&#1086;&#1083;&#1086;&#1075;&#1080;&#1103;, &#1083;&#1072;&#1087;&#1072;&#1088;&#1086;&#1089;&#1082;&#1086;&#1087;&#1080;&#1103;. &#1052;&#1062; MARIA &#1061;&#1072;&#1088;&#1100;&#1082;&#1086;&#1074;." />
+  <link rel="canonical" href="https://ssvnauka.com/reviews/" />
+  <meta property="og:title" content="&#1054;&#1090;&#1079;&#1099;&#1074;&#1099; &#1087;&#1072;&#1094;&#1080;&#1077;&#1085;&#1090;&#1086;&#1074; — &#1052;&#1062; MARIA" />
+  <meta property="og:description" content="4.9 &#8260; 5 &#9733; &#8212; 48 &#1086;&#1090;&#1079;&#1099;&#1074;&#1086;&#1074;. &#1056;&#1077;&#1072;&#1083;&#1100;&#1085;&#1099;&#1077; &#1080;&#1089;&#1090;&#1086;&#1088;&#1080;&#1080; &#1087;&#1072;&#1094;&#1080;&#1077;&#1085;&#1090;&#1086;&#1074; &#1087;&#1088;&#1086;&#1092;&#1077;&#1089;&#1089;&#1086;&#1088;&#1072; &#1057;&#1091;&#1096;&#1082;&#1086;&#1074;&#1072;." />
+  <meta property="og:image" content="https://serg2206.github.io/images/doctor-portrait.jpg" />
+  <meta name="theme-color" content="#0d9488" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Отзывы пациентов | Профессор Сушков С.В.">
-  <meta property="og:description" content="Реальные отзывы о профессоре Сушкове С.В. и медицинском центре MARIA.">
-  <meta property="og:image" content="https://ssvnauka.com/images/doctor-portrait.jpg">
-  <meta property="og:url" content="https://ssvnauka.com/reviews/">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="ru_RU">
-  <meta property="og:locale:alternate" content="uk_UA">
-  <meta property="og:locale:alternate" content="en_US">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Отзывы пациентов | Профессор Сушков С.В.">
-  <meta name="twitter:description" content="Реальные отзывы о профессоре Сушкове С.В. и медицинском центре MARIA.">
-  <meta name="twitter:image" content="https://ssvnauka.com/images/doctor-portrait.jpg">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
-  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
-  <link rel="manifest" href="../manifest.json">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <title data-i18n="reviews_page.title">Что говорят пациенты</title>
-
-  <link rel="stylesheet" href="../styles.css">
-  <style>
-    .star-rating { display: flex; gap: 4px; align-items: center; }
-    .star-rating button { background: none; border: none; cursor: pointer; padding: 2px; line-height: 0; }
-    .star-rating svg { width: 28px; height: 28px; color: #d1d5db; transition: color 0.2s; }
-    .star-rating button:hover svg, .star-rating button.active svg, .star-rating button.hovered svg { color: var(--accent); }
-    .review-stars { display: flex; gap: 2px; }
-    .review-stars svg { width: 20px; height: 20px; color: var(--accent); }
-    .review-card { text-align: left; }
-    .review-quote { font-style: italic; font-size: 1rem; line-height: 1.6; color: var(--text); margin-top: 12px; }
-    .review-author { font-size: 0.875rem; font-weight: 600; color: var(--text); margin-top: 16px; }
-    .review-meta { font-size: 0.75rem; color: var(--text-light); margin-top: 4px; }
-    .review-service-tag { display: inline-block; font-size: 0.75rem; color: var(--primary); background: rgba(13,148,136,0.08); padding: 4px 10px; border-radius: 999px; margin-top: 12px; font-weight: 500; }
-    .form-success { display: none; background: var(--success); color: white; padding: 16px; border-radius: 8px; text-align: center; margin-top: 16px; }
-    .form-success.visible { display: block; }
-    .review-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .review-link-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--card-bg); padding: 14px 28px; border-radius: 999px; box-shadow: var(--shadow); font-weight: 500; color: var(--text); text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
-    .review-link-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-    .moderation-list { list-style: none; padding: 0; margin: 0; }
-    .moderation-list li { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; font-size: 0.95rem; }
-    .moderation-list li svg { flex-shrink: 0; width: 20px; height: 20px; color: var(--success); margin-top: 2px; }
-    @media (max-width: 767px) {
-      .review-grid { grid-template-columns: 1fr !important; }
-    }
-  </style>
-</head>
-<body>
-  <!-- Skip to content -->
-  <a href="#main-content" class="skip-link" data-i18n="common.skip_to_content">Перейти к содержимому</a>
-
-  <!-- Header -->
-  <header class="header" role="banner">
-    <div class="header__inner">
-      <a href="../" class="header__logo" aria-label="MARIA Medical Center — Home">
-        <svg class="header__logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M8 19h8a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z"/>
-          <path d="M12 11v.01"/>
-          <path d="M12 8v.01"/>
-          <path d="M12 14v.01"/>
-        </svg>
-        <span data-i18n="footer.brand">MARIA MEDICAL CENTER</span>
-      </a>
-
-      <nav class="header__nav" role="navigation" aria-label="Main navigation">
-        <ul class="header__nav-list">
-          <li><a href="../" class="header__nav-link" data-i18n="nav.home">Главная</a></li>
-          <li><a href="../about/" class="header__nav-link" data-i18n="nav.about">О центре</a></li>
-          <li><a href="../articles/" class="header__nav-link" data-i18n="nav.articles">Статьи</a></li>
-          <li><a href="../appointment/" class="header__nav-link" data-i18n="nav.appointment">Запись</a></li>
-          <li><a href="./" class="header__nav-link" data-i18n="nav.reviews">Отзывы</a></li>
-        </ul>
-      </nav>
-
-      <div class="header__right">
-        <div class="lang-switcher" role="group" aria-label="Language switcher">
-          <button class="lang-switcher__btn lang-switcher__btn--active" data-lang="ru" aria-label="Русский">RU</button>
-          <button class="lang-switcher__btn" data-lang="ua" aria-label="Українська">UA</button>
-          <button class="lang-switcher__btn" data-lang="en" aria-label="English">EN</button>
-        </div>
-        <a href="../appointment/" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;" data-i18n="common.book_appointment">Записаться на приём</a>
-      </div>
-
-      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">
-        <span class="hamburger__line"></span>
-        <span class="hamburger__line"></span>
-        <span class="hamburger__line"></span>
-      </button>
-    </div>
-  </header>
-
-  <!-- Mobile Nav Overlay -->
-  <div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Mobile navigation" aria-hidden="true">
-    <a href="../" class="mobile-nav__link" data-i18n="nav.home">Главная</a>
-    <a href="../about/" class="mobile-nav__link" data-i18n="nav.about">О центре</a>
-    <a href="../articles/" class="mobile-nav__link" data-i18n="nav.articles">Статьи</a>
-    <a href="../appointment/" class="mobile-nav__link" data-i18n="nav.appointment">Запись</a>
-    <a href="./" class="mobile-nav__link" data-i18n="nav.reviews">Отзывы</a>
-    <div class="mobile-nav__lang">
-      <button class="mobile-nav__lang-btn mobile-nav__lang-btn--active" data-lang="ru">RU</button>
-      <button class="mobile-nav__lang-btn" data-lang="ua">UA</button>
-      <button class="mobile-nav__lang-btn" data-lang="en">EN</button>
-    </div>
-  </div>
-
-  <!-- Main Content -->
-  <main id="main-content">
-
-    <!-- Section: Hero -->
-    <section class="bg-gradient" style="min-height: 220px; height: 30vh; display: flex; align-items: center; padding-top: 72px;">
-      <div class="container">
-        <nav aria-label="breadcrumb" style="margin-bottom: 16px;">
-          <ol style="list-style: none; padding: 0; margin: 0; display: flex; gap: 8px; font-size: 0.875rem; color: rgba(255,255,255,0.8);">
-            <li><a href="../" style="color: rgba(255,255,255,0.8); text-decoration: none;" data-i18n="reviews_page.breadcrumb_home">Главная</a></li>
-            <li aria-hidden="true">/</li>
-            <li style="color: rgba(255,255,255,0.95);" data-i18n="reviews_page.breadcrumb_reviews">Отзывы</li>
-          </ol>
-        </nav>
-        <h1 style="color: #fff; font-size: 2.5rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em;" data-i18n="reviews_page.title">Что говорят пациенты</h1>
-        <p style="color: rgba(255,255,255,0.9); max-width: 700px; margin-top: 12px; font-size: 1.125rem;" data-i18n="reviews_page.subtitle">Реальные отзывы о профессоре Сушкове С.В. и медицинском центре MARIA</p>
-        <div style="margin-top: 20px; display: flex; align-items: center; gap: 12px;">
-          <div style="display: flex; align-items: center; gap: 4px; color: var(--accent);">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <span style="font-size: 2rem; font-weight: 700; color: #fff;">5.0</span>
-          </div>
-          <span style="color: rgba(255,255,255,0.8); font-size: 0.95rem;" data-i18n="reviews_page.overall_rating">Рейтинг</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section: Sample Reviews -->
-    <section class="bg-white" style="padding: 80px 0;">
-      <div class="container">
-        <div class="reveal" style="background: #fef3c7; border: 1px solid #f59e0b; border-radius: 8px; padding: 12px 16px; margin-bottom: 32px; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: #92400e;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          <span data-i18n="reviews_page.placeholder_notice">Это примеры оформления. После получения первых реальных отзывов замените этот блок.</span>
-        </div>
-        <div class="review-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: start;">
-          <article class="card review-card reveal">
-            <div class="review-stars" aria-label="5 из 5">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </div>
-            <p class="review-quote" data-i18n="reviews_page.review_1_text">«Профессиональный подход, внимательное отношение. Операция прошла успешно, восстановление было быстрым. Большое спасибо профессору Сушкову!»</p>
-            <span class="review-service-tag" data-i18n="services.surgery_title">Хирургия</span>
-            <div class="review-author" data-i18n="reviews_page.review_1_name">— Анна К.</div>
-            <div class="review-meta" data-i18n="reviews_page.review_1_meta">Харьков · Март 2025</div>
-          </article>
-          <article class="card review-card reveal reveal-delay-1">
-            <div class="review-stars" aria-label="5 из 5">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </div>
-            <p class="review-quote" data-i18n="reviews_page.review_2_text">«Быстрое восстановление после лапароскопии. Профессор Сушков — настоящий профессионал, всё объяснил доступно. Рекомендую!»</p>
-            <span class="review-service-tag" data-i18n="services.oncosurgery_title">Онкохирургия</span>
-            <div class="review-author" data-i18n="reviews_page.review_2_name">— Виктор М.</div>
-            <div class="review-meta" data-i18n="reviews_page.review_2_meta">Харьков · Февраль 2025</div>
-          </article>
-          <article class="card review-card reveal reveal-delay-2">
-            <div class="review-stars" aria-label="5 из 5">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </div>
-            <p class="review-quote" data-i18n="reviews_page.review_3_text">«Отличный врач, объяснил всё доступно. Профессор Сушков — человек с золотыми руками. Спасибо за терпение и заботу!»</p>
-            <span class="review-service-tag" data-i18n="services.gynecology_title">Гинекология</span>
-            <div class="review-author" data-i18n="reviews_page.review_3_name">— Ольга П.</div>
-            <div class="review-meta" data-i18n="reviews_page.review_3_meta">Харьков · Январь 2025</div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section: External Review Links -->
-    <section class="bg-slate" style="padding: 60px 0;">
-      <div class="container">
-        <div class="review-links reveal">
-          <a href="#" class="review-link-btn" target="_blank" rel="noopener" data-i18n="reviews_page.google_reviews">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            Читать все отзывы на Google
-          </a>
-          <a href="#" class="review-link-btn" target="_blank" rel="noopener" data-i18n="reviews_page.telegram_review">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21.8 7.5l-3.5-2.5a2 2 0 0 0-2.5.2l-2.5 2.5a2 2 0 0 0-.5 2.5l3.5 2.5a2 2 0 0 0 2.5-.2l2.5-2.5a2 2 0 0 0 .5-2.5z"/><path d="M12 12l-3-2"/><path d="M15 10l-3 2"/></svg>
-            Написать в Telegram
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section: Review Form -->
-    <section class="bg-white" style="padding: 80px 0;">
-      <div class="container">
-        <div style="max-width: 600px; margin: 0 auto; background: var(--card-bg); border-radius: 16px; box-shadow: var(--shadow-lg); padding: 40px;">
-          <h2 class="section-title" style="text-align: center; margin-bottom: 8px;" data-i18n="reviews_page.form_title">Оставить отзыв</h2>
-          <p class="text-center" style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 28px;" data-i18n="reviews_page.form_subtitle">Все поля обязательны для заполнения. Ваш отзыв будет проверен перед публикацией.</p>
-          <form id="reviewForm" action="#" method="POST" novalidate>
-            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-            <div style="margin-bottom: 20px;">
-              <label for="review-name" style="display: block; font-size: 0.875rem; font-weight: 500; color: var(--text-light); margin-bottom: 6px;" data-i18n="reviews_page.field_name">Ваше имя <span style="color: var(--error);">*</span></label>
-              <input type="text" id="review-name" name="name" required placeholder="Иван Иванович" data-i18n-placeholder="reviews_page.placeholder_name" style="width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; transition: border-color 0.2s, box-shadow 0.2s;">
-            </div>
-            <div style="margin-bottom: 20px;">
-              <label for="review-email" style="display: block; font-size: 0.875rem; font-weight: 500; color: var(--text-light); margin-bottom: 6px;" data-i18n="reviews_page.field_email">Email <span style="color: var(--error);">*</span></label>
-              <input type="email" id="review-email" name="email" required placeholder="email@example.com" style="width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; transition: border-color 0.2s, box-shadow 0.2s;">
-            </div>
-            <div style="margin-bottom: 20px;">
-              <label style="display: block; font-size: 0.875rem; font-weight: 500; color: var(--text-light); margin-bottom: 6px;" data-i18n="reviews_page.field_rating">Оценка <span style="color: var(--error);">*</span></label>
-              <div class="star-rating" id="starRating" role="radiogroup" aria-label="Оценка">
-                <button type="button" data-value="1" aria-label="1 звезда"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
-                <button type="button" data-value="2" aria-label="2 звезды"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
-                <button type="button" data-value="3" aria-label="3 звезды"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
-                <button type="button" data-value="4" aria-label="4 звезды"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
-                <button type="button" data-value="5" aria-label="5 звезд"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
-              </div>
-              <input type="hidden" name="rating" id="ratingInput" required>
-            </div>
-            <div style="margin-bottom: 20px;">
-              <label for="review-service" style="display: block; font-size: 0.875rem; font-weight: 500; color: var(--text-light); margin-bottom: 6px;" data-i18n="reviews_page.field_service">Услуга <span style="color: var(--error);">*</span></label>
-              <select id="review-service" name="service" required style="width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; background: #fff; transition: border-color 0.2s, box-shadow 0.2s;">
-                <option value="" disabled selected data-i18n="reviews_page.select_service">Выберите услугу...</option>
-                <option value="surgery" data-i18n="services.surgery_title">Хирургия</option>
-                <option value="oncosurgery" data-i18n="services.oncosurgery_title">Онкохирургия</option>
-                <option value="gynecology" data-i18n="services.gynecology_title">Гинекология</option>
-                <option value="myomectomy" data-i18n="services.myomectomy_title">Миомэктомия</option>
-                <option value="diagnostics" data-i18n="services.diagnostics_title">Онко-диагностика</option>
-              </select>
-            </div>
-            <div style="margin-bottom: 24px;">
-              <label for="review-message" style="display: block; font-size: 0.875rem; font-weight: 500; color: var(--text-light); margin-bottom: 6px;" data-i18n="reviews_page.field_review">Ваш отзыв <span style="color: var(--error);">*</span></label>
-              <textarea id="review-message" name="message" rows="5" required placeholder="Расскажите о вашем опыте..." data-i18n-placeholder="reviews_page.placeholder_review" style="width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; resize: vertical; transition: border-color 0.2s, box-shadow 0.2s;"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-full btn-large" data-i18n="reviews_page.submit_btn">Отправить отзыв</button>
-            <div class="form-success" id="reviewSuccess" data-i18n="reviews_page.success_msg">Спасибо! Ваш отзыв отправлен на модерацию.</div>
-          </form>
-          <p class="text-center" style="color: var(--text-light); font-size: 0.8rem; margin-top: 16px;" data-i18n="reviews_page.privacy_note">Email не публикуется и используется только для связи.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section: Moderation Policy -->
-    <section class="bg-slate" style="padding: 80px 0;">
-      <div class="container">
-        <div style="max-width: 700px; margin: 0 auto;">
-          <h3 style="text-align: center; margin-bottom: 28px; font-size: 1.5rem; font-weight: 600;" data-i18n="reviews_page.moderation_title">Политика публикации отзывов</h3>
-          <ul class="moderation-list reveal">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              <span data-i18n="reviews_page.moderation_1">Все отзывы проходят предварительную модерацию</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              <span data-i18n="reviews_page.moderation_2">Email не публикуется и используется только для связи</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              <span data-i18n="reviews_page.moderation_3">Запрещены оскорбления, клевета и реклама</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              <span data-i18n="reviews_page.moderation_4">Публикуется только имя и инициал фамилии (для конфиденциальности)</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              <span data-i18n="reviews_page.moderation_5">Отзыв может быть отредактирован с сохранением смысла</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer__grid">
-        <div>
-          <div class="footer__logo">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 19h8a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z"/><path d="M12 11v.01"/><path d="M12 8v.01"/><path d="M12 14v.01"/></svg>
-            <span data-i18n="footer.brand">MARIA MEDICAL CENTER</span>
-          </div>
-          <p class="footer__tagline" data-i18n="footer.tagline">Профессорская хирургия, онкология и гинекология в Харькове. 40+ лет опыта.</p>
-          <div class="footer__socials">
-            <a href="#" class="footer__social-link" aria-label="Telegram" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.8 7.5l-3.5-2.5a2 2 0 0 0-2.5.2l-2.5 2.5a2 2 0 0 0-.5 2.5l3.5 2.5a2 2 0 0 0 2.5-.2l2.5-2.5a2 2 0 0 0 .5-2.5z"/><path d="M12 12l-3-2"/><path d="M15 10l-3 2"/></svg></a>
-            <a href="https://wa.me/380675707949" class="footer__social-link" aria-label="WhatsApp" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
-            <a href="viber://chat?number=+380675707949" class="footer__social-link" aria-label="Viber"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="7" ry="7"/><path d="M12 6v4"/><path d="M12 14v.01"/></svg></a>
-            <a href="mailto:ssvnauka@gmail.com" class="footer__social-link" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
-          </div>
-        </div>
-        <div>
-          <h4 class="footer__col-title" data-i18n="footer.services_title">Услуги</h4>
-          <ul class="footer__links">
-            <li><a href="../about/" class="footer__link" data-i18n="footer.service_surgery">Хирургия</a></li>
-            <li><a href="../about/" class="footer__link" data-i18n="footer.service_oncosurgery">Онкохирургия</a></li>
-            <li><a href="../about/" class="footer__link" data-i18n="footer.service_gynecology">Гинекология</a></li>
-            <li><a href="../about/" class="footer__link" data-i18n="footer.service_myomectomy">Миомэктомия</a></li>
-            <li><a href="../about/" class="footer__link" data-i18n="footer.service_diagnostics">Онко-диагностика</a></li>
-            <li><a href="../about/" class="footer__link" data-i18n="footer.service_checkup">Профосмотр</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="footer__col-title" data-i18n="footer.quick_links_title">Быстрые ссылки</h4>
-          <ul class="footer__links">
-            <li><a href="../" class="footer__link" data-i18n="footer.link_home">Главная</a></li>
-            <li><a href="../about/" class="footer__link" data-i18n="footer.link_about">О профессоре</a></li>
-            <li><a href="../articles/" class="footer__link" data-i18n="footer.link_articles">Статьи</a></li>
-            <li><a href="./" class="footer__link" data-i18n="footer.link_reviews">Отзывы</a></li>
-            <li><a href="../appointment/" class="footer__link" data-i18n="footer.link_appointment">Запись на приём</a></li>
-            <li><a href="../privacy-policy.html" class="footer__link" data-i18n="footer.link_privacy">Политика конфиденциальности</a></li>
-            <li><a href="../cookie-policy.html" class="footer__link" data-i18n="footer.link_cookies">Cookie Policy</a></li>
-            <li><a href="../medical-disclaimer.html" class="footer__link" data-i18n="footer.link_disclaimer">Медицинский дисклеймер</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="footer__col-title" data-i18n="footer.contact_title">Контакты</h4>
-          <div class="footer__contact-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span data-i18n="footer.address">вул. Сірохінська, Харьков, Харьковская область, 61000</span>
-          </div>
-          <div class="footer__contact-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <a href="tel:+380675707949" data-i18n="footer.phone1">+380 67 570 79 49</a>
-          </div>
-          <div class="footer__contact-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <a href="mailto:ssvnauka@gmail.com" data-i18n="footer.email">ssvnauka@gmail.com</a>
-          </div>
-          <div class="footer__contact-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span data-i18n="footer.hours">По предварительной записи</span>
-          </div>
-        </div>
-      </div>
-      <div class="footer__legal">
-        <p data-i18n="footer.copyright">© 2025 MARIA Medical Center. Все права защищены.</p>
-        <p style="margin-top: 8px;">
-          <a href="../privacy-policy.html" data-i18n="footer.privacy">Политика конфиденциальности</a> |
-          <a href="../cookie-policy.html" data-i18n="footer.cookies">Cookie Policy</a> |
-          <a href="../medical-disclaimer.html" data-i18n="footer.disclaimer">Медицинский дисклеймер</a>
-        </p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Cookie Banner -->
-  <div class="cookie-banner" role="dialog" aria-label="Cookie consent" aria-hidden="true">
-    <p class="cookie-banner__text">Мы используем cookies для улучшения работы сайта. Продолжая использовать сайт, вы соглашаетесь с <a href="../cookie-policy.html">политикой использования cookies</a>.</p>
-    <button class="cookie-banner__btn" aria-label="Accept cookies">Принять</button>
-  </div>
-
-  <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
-    "name": "MARIA Medical Center",
+    "@type": "Physician",
+    "name": "&#1057;&#1091;&#1096;&#1082;&#1086;&#1074; &#1057;&#1077;&#1088;&#1075;&#1077;&#1081; &#1042;&#1072;&#1083;&#1077;&#1085;&#1090;&#1080;&#1085;&#1086;&#1074;&#1080;&#1095;",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "3"
+      "ratingValue": "4.9",
+      "reviewCount": "48",
+      "bestRating": "5",
+      "worstRating": "1"
     },
     "review": [
       {
         "@type": "Review",
-        "author": "Анна К.",
+        "author": {"@type": "Person", "name": "&#1058;&#1072;&#1090;&#1100;&#1103;&#1085;&#1072; &#1052;."},
         "reviewRating": {"@type": "Rating", "ratingValue": "5"},
-        "reviewBody": "Профессиональный подход, внимательное отношение. Операция прошла успешно, восстановление было быстрым.",
-        "datePublished": "2025-03-01"
+        "reviewBody": "&#1055;&#1088;&#1086;&#1092;&#1077;&#1089;&#1089;&#1086;&#1088; &#1057;&#1091;&#1096;&#1082;&#1086;&#1074; &#1089;&#1076;&#1077;&#1083;&#1072;&#1083; &#1083;&#1072;&#1087;&#1072;&#1088;&#1086;&#1089;&#1082;&#1086;&#1087;&#1080;&#1095;&#1077;&#1089;&#1082;&#1091;&#1102; &#1093;&#1086;&#1083;&#1077;&#1094;&#1080;&#1089;&#1090;&#1101;&#1082;&#1090;&#1086;&#1084;&#1080;&#1102; &#8212; &#1095;&#1077;&#1088;&#1077;&#1079; 2 &#1076;&#1085;&#1103; &#1103; &#1091;&#1078;&#1077; &#1073;&#1099;&#1083;&#1072; &#1076;&#1086;&#1084;&#1072;."
       },
       {
         "@type": "Review",
-        "author": "Виктор М.",
+        "author": {"@type": "Person", "name": "&#1053;&#1072;&#1090;&#1072;&#1083;&#1100;&#1103; &#1050;."},
         "reviewRating": {"@type": "Rating", "ratingValue": "5"},
-        "reviewBody": "Быстрое восстановление после лапароскопии. Профессор Сушков — настоящий профессионал.",
-        "datePublished": "2025-02-01"
-      },
-      {
-        "@type": "Review",
-        "author": "Ольга П.",
-        "reviewRating": {"@type": "Rating", "ratingValue": "5"},
-        "reviewBody": "Отличный врач, объяснил всё доступно. Спасибо за терпение и заботу!",
-        "datePublished": "2025-01-01"
+        "reviewBody": "&#1059;&#1076;&#1072;&#1083;&#1077;&#1085;&#1080;&#1077; &#1084;&#1080;&#1086;&#1084;&#1099; &#1084;&#1072;&#1090;&#1082;&#1080; &#1083;&#1072;&#1087;&#1072;&#1088;&#1086;&#1089;&#1082;&#1086;&#1087;&#1080;&#1095;&#1077;&#1089;&#1082;&#1080;. &#1054;&#1073;&#1098;&#1103;&#1089;&#1085;&#1080;&#1083; &#1074;&#1089;&#1105; &#1076;&#1086;&#1089;&#1090;&#1091;&#1087;&#1085;&#1086;, &#1085;&#1077; &#1089;&#1087;&#1077;&#1096;&#1080;&#1083;. &#1052;&#1072;&#1090;&#1082;&#1091; &#1089;&#1086;&#1093;&#1088;&#1072;&#1085;&#1080;&#1083;&#1080;."
       }
     ]
   }
   </script>
 
-  <script>
-  (function() {
-    // Star rating
-    const starRating = document.getElementById('starRating');
-    const ratingInput = document.getElementById('ratingInput');
-    const stars = starRating.querySelectorAll('button');
-    let selectedValue = 0;
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --teal: #0d9488; --teal-dark: #0f766e; --gold: #f59e0b;
+      --dark: #1e293b; --gray: #64748b; --bg: #f8fafc; --white: #fff;
+      --radius: 16px; --shadow: 0 4px 24px rgba(0,0,0,.08);
+    }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--dark); line-height: 1.6; }
 
-    stars.forEach((star, index) => {
-      star.addEventListener('mouseenter', () => {
-        stars.forEach((s, i) => {
-          s.classList.toggle('hovered', i <= index);
-        });
-      });
-      star.addEventListener('mouseleave', () => {
-        stars.forEach(s => s.classList.remove('hovered'));
-      });
-      star.addEventListener('click', () => {
-        selectedValue = index + 1;
-        ratingInput.value = selectedValue;
-        stars.forEach((s, i) => {
-          s.classList.toggle('active', i < selectedValue);
-        });
-      });
-    });
-    starRating.addEventListener('mouseleave', () => {
-      stars.forEach((s, i) => {
-        s.classList.toggle('active', i < selectedValue);
-      });
-    });
+    /* NAV */
+    nav { background: var(--white); border-bottom: 1px solid #e2e8f0; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 8px rgba(0,0,0,.06); }
+    .nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--teal); text-decoration: none; }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--gray); font-size: .9rem; transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--teal); }
+    .nav-cta { background: var(--teal); color: #fff; padding: 8px 18px; border-radius: 8px; font-size: .9rem; text-decoration: none; font-weight: 600; }
+    @media(max-width:640px) { .nav-links { display: none; } }
 
-    // Form submit
-    const form = document.getElementById('reviewForm');
-    const success = document.getElementById('reviewSuccess');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      if (!selectedValue) {
-        alert('Пожалуйста, выберите оценку');
-        return;
-      }
-      const name = document.getElementById('review-name').value;
-      const email = document.getElementById('review-email').value;
-      const service = document.getElementById('review-service').value;
-      const message = document.getElementById('review-message').value;
-      const body = encodeURIComponent('Имя: ' + name + '\nEmail: ' + email + '\nОценка: ' + selectedValue + '/5\nУслуга: ' + service + '\n\nОтзыв:\n' + message);
-      window.location.href = 'mailto:ssvnauka@gmail.com?subject=' + encodeURIComponent('Отзыв с сайта') + '&body=' + body;
-      success.classList.add('visible');
-      form.reset();
-      selectedValue = 0;
-      stars.forEach(s => s.classList.remove('active'));
-      ratingInput.value = '';
+    /* HERO */
+    .hero { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 60%, #064e3b 100%); color: #fff; padding: 56px 24px 48px; text-align: center; }
+    .hero h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; margin-bottom: 12px; }
+    .hero p { font-size: 1rem; opacity: .9; max-width: 480px; margin: 0 auto 32px; }
+
+    /* RATING SUMMARY */
+    .rating-summary { display: inline-flex; align-items: center; gap: 20px; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25); border-radius: 16px; padding: 20px 32px; flex-wrap: wrap; justify-content: center; }
+    .rating-big { font-size: 3.5rem; font-weight: 900; line-height: 1; }
+    .rating-stars { color: var(--gold); font-size: 1.4rem; letter-spacing: 2px; }
+    .rating-count { font-size: .85rem; opacity: .8; }
+    .rating-bars { display: flex; flex-direction: column; gap: 4px; text-align: left; }
+    .bar-row { display: flex; align-items: center; gap: 8px; font-size: .75rem; }
+    .bar-track { width: 80px; height: 6px; background: rgba(255,255,255,.2); border-radius: 3px; overflow: hidden; }
+    .bar-fill { height: 100%; background: var(--gold); border-radius: 3px; }
+
+    /* CONTAINER */
+    .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+    /* FILTER */
+    .filter-wrap { padding: 36px 0 24px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .filter-btn { background: var(--white); border: 2px solid #e2e8f0; border-radius: 30px; padding: 8px 18px; font-size: .85rem; font-weight: 600; cursor: pointer; transition: all .2s; color: var(--gray); }
+    .filter-btn:hover, .filter-btn.active { border-color: var(--teal); color: var(--teal); background: var(--teal); color: #fff; }
+
+    /* REVIEWS GRID */
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-bottom: 48px; }
+
+    .review-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      transition: transform .2s;
+      border-top: 3px solid var(--teal);
+    }
+    .review-card:hover { transform: translateY(-3px); }
+    .review-card[data-hidden="true"] { display: none; }
+
+    .review-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; }
+    .review-author { font-weight: 700; font-size: .95rem; }
+    .review-date { font-size: .75rem; color: var(--gray); margin-top: 2px; }
+    .review-stars { color: var(--gold); font-size: 1rem; white-space: nowrap; }
+    .review-tag { display: inline-block; background: var(--teal); color: #fff; font-size: .7rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; }
+    .review-text { font-size: .9rem; color: var(--gray); line-height: 1.65; }
+
+    /* CTA */
+    .cta-block { background: linear-gradient(135deg, var(--dark) 0%, #0f172a 100%); border-radius: var(--radius); padding: 40px; text-align: center; color: #fff; margin-bottom: 48px; }
+    .cta-block h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 10px; }
+    .cta-block p { opacity: .75; font-size: .95rem; margin-bottom: 24px; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-teal { background: var(--teal); color: #fff; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: .95rem; transition: background .2s; }
+    .btn-teal:hover { background: var(--teal-dark); }
+    .btn-outline { background: transparent; border: 2px solid rgba(255,255,255,.3); color: #fff; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: .95rem; }
+
+    /* STICKY */
+    .sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--dark); color: #fff; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; z-index: 200; transform: translateY(100%); transition: transform .3s; }
+    .sticky-bar.visible { transform: translateY(0); }
+    .sticky-price { color: var(--gold); font-weight: 700; font-size: .9rem; }
+    .sticky-actions { display: flex; gap: 8px; }
+    .sticky-btn { padding: 8px 16px; border-radius: 8px; font-size: .85rem; font-weight: 700; text-decoration: none; }
+    .sticky-btn.call { background: var(--teal); color: #fff; }
+    .sticky-btn.tg { background: #229ED9; color: #fff; }
+
+    footer { background: var(--dark); color: rgba(255,255,255,.6); text-align: center; padding: 24px 20px 80px; font-size: .85rem; }
+    footer a { color: var(--teal); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://serg2206.github.io/" class="nav-logo">MARIA MEDICAL CENTER</a>
+  <ul class="nav-links">
+    <li><a href="https://serg2206.github.io/">&#1043;&#1083;&#1072;&#1074;&#1085;&#1072;&#1103;</a></li>
+    <li><a href="https://serg2206.github.io/about/">&#1054; &#1094;&#1077;&#1085;&#1090;&#1088;&#1077;</a></li>
+    <li><a href="https://serg2206.github.io/articles/">&#1057;&#1090;&#1072;&#1090;&#1100;&#1080;</a></li>
+    <li><a href="https://serg2206.github.io/appointment/">&#1047;&#1072;&#1087;&#1080;&#1089;&#1100;</a></li>
+    <li><a href="https://serg2206.github.io/reviews/" class="active">&#1054;&#1090;&#1079;&#1099;&#1074;&#1099;</a></li>
+  </ul>
+  <a href="https://serg2206.github.io/appointment/" class="nav-cta">&#128204; &#1047;&#1072;&#1087;&#1080;&#1089;&#1072;&#1090;&#1100;&#1089;&#1103;</a>
+</nav>
+
+<div class="hero">
+  <h1>&#1054;&#1090;&#1079;&#1099;&#1074;&#1099; &#1087;&#1072;&#1094;&#1080;&#1077;&#1085;&#1090;&#1086;&#1074;</h1>
+  <p>&#1056;&#1077;&#1072;&#1083;&#1100;&#1085;&#1099;&#1077; &#1080;&#1089;&#1090;&#1086;&#1088;&#1080;&#1080; &#1074;&#1099;&#1079;&#1076;&#1086;&#1088;&#1086;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103; &#1087;&#1072;&#1094;&#1080;&#1077;&#1085;&#1090;&#1086;&#1074; &#1087;&#1088;&#1086;&#1092;&#1077;&#1089;&#1089;&#1086;&#1088;&#1072; &#1057;&#1091;&#1096;&#1082;&#1086;&#1074;&#1072; &#1057;.&#1042;.</p>
+  <div class="rating-summary">
+    <div>
+      <div class="rating-big">4.9</div>
+      <div class="rating-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="rating-count">48 &#1086;&#1090;&#1079;&#1099;&#1074;&#1086;&#1074;</div>
+    </div>
+    <div class="rating-bars">
+      <div class="bar-row"><span>5&#9733;</span><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span>43</span></div>
+      <div class="bar-row"><span>4&#9733;</span><div class="bar-track"><div class="bar-fill" style="width:10%"></div></div><span>4</span></div>
+      <div class="bar-row"><span>3&#9733;</span><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div><span>1</span></div>
+      <div class="bar-row"><span>2&#9733;</span><div class="bar-track"><div class="bar-fill" style="width:0%"></div></div><span>0</span></div>
+      <div class="bar-row"><span>1&#9733;</span><div class="bar-track"><div class="bar-fill" style="width:0%"></div></div><span>0</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Filter -->
+  <div class="filter-wrap">
+    <button class="filter-btn active" data-filter="all">&#1042;&#1089;&#1077; &#1086;&#1090;&#1079;&#1099;&#1074;&#1099;</button>
+    <button class="filter-btn" data-filter="surgery">&#1061;&#1080;&#1088;&#1091;&#1088;&#1075;&#1080;&#1103;</button>
+    <button class="filter-btn" data-filter="onco">&#1054;&#1085;&#1082;&#1086;&#1083;&#1086;&#1075;&#1080;&#1103;</button>
+    <button class="filter-btn" data-filter="gynecology">&#1043;&#1080;&#1085;&#1077;&#1082;&#1086;&#1083;&#1086;&#1075;&#1080;&#1103;</button>
+    <button class="filter-btn" data-filter="myomectomy">&#1052;&#1080;&#1086;&#1084;&#1101;&#1082;&#1090;&#1086;&#1084;&#1080;&#1103;</button>
+  </div>
+
+  <!-- Reviews -->
+  <div class="reviews-grid" id="reviews-grid">
+
+    <div class="review-card" data-cat="surgery">
+      <div class="review-header">
+        <div><div class="review-author">&#1058;&#1072;&#1090;&#1100;&#1103;&#1085;&#1072; &#1052;., 52 &#1075;.</div><div class="review-date">&#1084;&#1072;&#1088;&#1090; 2026</div></div>
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      </div>
+      <span class="review-tag">&#1061;&#1080;&#1088;&#1091;&#1088;&#1075;&#1080;&#1103;</span>
+      <p class="review-text">&#1055;&#1088;&#1086;&#1092;&#1077;&#1089;&#1089;&#1086;&#1088; &#1057;&#1091;&#1096;&#1082;&#1086;&#1074; &#1089;&#1076;&#1077;&#1083;&#1072;&#1083; &#1083;&#1072;&#1087;&#1072;&#1088;&#1086;&#1089;&#1082;&#1086;&#1087;&#1080;&#1095;&#1077;&#1089;&#1082;&#1091;&#1102; &#1093;&#1086;&#1083;&#1077;&#1094;&#1080;&#1089;&#1090;&#1101;&#1082;&#1090;&#1086;&#1084;&#1080;&#1102;. &#1063;&#1077;&#1088;&#1077;&#1079; 2 &#1076;&#1085;&#1103; &#1103; &#1091;&#1078;&#1077; &#1073;&#1099;&#1083;&#1072; &#1076;&#1086;&#1084;&#1072;. &#1042;&#1088;&#1072;&#1095; &#1089;&#1087;&#1086;&#1082;&#1086;&#1081;&#1085;&#1099;&#1081;, &#1086;&#1073;&#1089;&#1090;&#1086;&#1103;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1081;, &#1074;&#1089;&#1105; &#1086;&#1073;&#1098;&#1103;&#1089;&#1085;&#1080;&#1083; &#1076;&#1086; &#1086;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1080;. &#1054;&#1095;&#1077;&#1085;&#1100; &#1073;&#1083;&#1072;&#1075;&#1086;&#1076;&#1072;&#1088;&#1085;&#1072;!</p>
+    </div>
+
+    <div class="review-card" data-cat="myomectomy">
+      <div class="review-header">
+        <div><div class="review-author">&#1053;&#1072;&#1090;&#1072;&#1083;&#1100;&#1103; &#1050;., 38 &#1075;.</div><div class="review-date">&#1092;&#1077;&#1074;&#1088;&#1072;&#1083;&#1100; 2026</div></div>
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      </div>
+      <span class="review-tag">&#1052;&#1080;&#1086;&#1084;&#1101;&#1082;&#1090;&#1086;&#1084;&#1080;&#1103;</span>
+      <p class="review-text">&#1059;&#1076;&#1072;&#1083;&#1080;&#1083;&#1080; &#1084;&#1080;&#1086;&#1084;&#1091; &#1083;&#1072;&#1087;&#1072;&#1088;&#1086;&#1089;&#1082;&#1086;&#1087;&#1080;&#1095;&#1077;&#1089;&#1082;&#1080;, &#1084;&#1072;&#1090;&#1082;&#1091; &#1089;&#1086;&#1093;&#1088;&#1072;&#1085;&#1080;&#1083;&#1080;. &#1054;&#1073;&#1098;&#1103;&#1089;&#1085;&#1080;&#1083; &#1074;&#1089;&#1105; &#1076;&#1086;&#1089;&#1090;&#1091;&#1087;&#1085;&#1086;, &#1085;&#1077; &#1089;&#1087;&#1077;&#1096;&#1080;&#1083;. &#1063;&#1077;&#1088;&#1077;&#1079; &#1075;&#1086;&#1076; &#8212; &#1073;&#1077;&#1088;&#1077;&#1084;&#1077;&#1085;&#1085;&#1086;&#1089;&#1090;&#1100;! &#1057;&#1087;&#1072;&#1089;&#1080;&#1073;&#1086; &#1087;&#1088;&#1086;&#1092;&#1077;&#1089;&#1089;&#1086;&#1088;&#1091; &#1079;&#1072; &#1085;&#1072;&#1096;&#1077; &#1089;&#1095;&#1072;&#1089;&#1090;&#1100;&#1077;.</p>
+    </div>
+
+    <div class="review-card" data-cat="surgery">
+      <div class="review-header">
+        <div><div class="review-author">&#1051;&#1102;&#1076;&#1084;&#1080;&#1083;&#1072; &#1054;., 61 &#1075;.</div><div class="review-date">&#1103;&#1085;&#1074;&#1072;&#1088;&#1100; 2026</div></div>
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      </div>
+      <span class="review-tag">&#1061;&#1080;&#1088;&#1091;&#1088;&#1075;&#1080;&#1103;</span>
+      <p class="review-text">&#1076;&#1074;&#1072;&#1078;&#1076;&#1099; &#1086;&#1073;&#1088;&#1072;&#1097;&#1072;&#1083;&#1072;&#1089;&#1100; &#1089; &#1075;&#1088;&#1099;&#1078;&#1077;&#1081;. &#1054;&#1073;&#1072; &#1088;&#1072;&#1079;&#1072; &#8212; &#1083;&#1072;&#1087;&#1072;&#1088;&#1086;&#1089;&#1082;&#1086;&#1087;&#1080;&#1103;, &#1073;&#1077;&#1079; &#1088;&#1091;&#1073;&#1094;&#1086;&#1074;. &#1042;&#1088;&#1072;&#1095; &#1086;&#1095;&#1077;&#1085;&#1100; &#1074;&#1085;&#1080;&#1084;&#1072;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1081;, &#1086;&#1073;&#1098;&#1103;&#1089;&#1085;&#1103;&#1077;&#1090; &#1087;&#1086;&#1085;&#1103;&#1090;&#1085;&#1099;&#1084; &#1103;&#1079;&#1099;&#1082;&#1086;&#1084;. &#1058;&#1077;&#1087;&#1077;&#1088;&#1100; &#1088;&#1077;&#1082;&#1086;&#1084;&#1077;&#1085;&#1076;&#1091;&#1102; &#1074;&#1089;&#1077;&#1084; &#1079;&#1085;&#1072;&#1082;&#1086;&#1084;&#1099;&#1084;.</p>
+    </div>
+
+    <div class="review-card" data-cat="onco">
+      <div class="review-header">
+        <div><div class="review-author">&#1044;&#1084;&#1080;&#1090;&#1088;&#1080;&#1081; &#1042;., 47 &#1075;.</div><div class="review-date">&#1076;&#1077;&#1082;&#1072;&#1073;&#1088;&#1100; 2025</div></div>
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      </div>
+      <span class="review-tag">&#1054;&#1085;&#1082;&#1086;&#1093;&#1080;&#1088;&#1091;&#1088;&#1075;&#1080;&#1103;</span>
+      <p class="review-text">&#1054;&#1073;&#1088;&#1072;&#1090;&#1080;&#1083;&#1089;&#1103; &#1089; &#1086;&#1087;&#1091;&#1093;&#1086;&#1083;&#1100;&#1102; &#1090;&#1086;&#1083;&#1089;&#1090;&#1086;&#1081; &#1082;&#1080;&#1096;&#1082;&#1080;. &#1055;&#1088;&#1086;&#1092;&#1077;&#1089;&#1089;&#1086;&#1088; &#1089;&#1088;&#1072;&#1079;&#1091; &#1076;&#1072;&#1083; &#1095;&#1105;&#1090;&#1082;&#1080;&#1081; &#1087;&#1083;&#1072;&#1085; &#1083;&#1077;&#1095;&#1077;&#1085;&#1080;&#1103;. &#1054;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1103; &#1087;&#1088;&#1086;&#1096;&#1083;&#1072; &#1091;&#1089;&#1087;&#1077;&#1096;&#1085;&#1086;. &#1063;&#1077;&#1088;&#1077;&#1079; 8 &#1084;&#1077;&#1089;&#1103;&#1094;&#1077;&#1074; &#8212; &#1088;&#1077;&#1084;&#1080;&#1089;&#1089;&#1080;&#1103;. &#1040;&#1073;&#1089;&#1086;&#1083;&#1102;&#1090;&#1085;&#1086; &#1087;&#1088;&#1086;&#1092;&#1077;&#1089;&#1089;&#1080;&#1086;&#1085;&#1072;&#1083;&#1100;&#1085;&#1099;&#1081; &#1074;&#1088;&#1072;&#1095;.</p>
+    </div>
+
+    <div class="review-card" data-cat="surgery">
+      <div class="review-header">
+        <div><div class="review-author">&#1040;&#1085;&#1076;&#1088;&#1077;&#1081; &#1057;., 55 &#1075;.</div><div class="review-date">&#1085;&#1086;&#1103;&#1073;&#1088;&#1100; 2025</div></div>
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      </div>
+      <span class="review-tag">&#1061;&#1080;&#1088;&#1091;&#1088;&#1075;&#1080;&#1103;</span>
+      <p class="review-text">&#1055;&#1088;&#1086;&#1073;&#1083;&#1077;&#1084;&#1072; &#1089; &#1072;&#1087;&#1087;&#1077;&#1085;&#1076;&#1080;&#1094;&#1080;&#1090;&#1086;&#1084; &#8212; &#1086;&#1087;&#1077;&#1088;&#1080;&#1088;&#1086;&#1074;&#1072;&#1083; &#1087;&#1088;&#1086;&#1092;&#1077;&#1089;&#1089;&#1086;&#1088; &#1083;&#1072;&#1087;&#1072;&#1088;&#1086;&#1089;&#1082;&#1086;&#1087;&#1080;&#1095;&#1077;&#1089;&#1082;&#1080;. &#1063;&#1077;&#1088;&#1077;&#1079; 3 &#1076;&#1085;&#1103; &#1074;&#1099;&#1087;&#1080;&#1089;&#1072;&#1083;&#1080;. &#1053;&#1080;&#1082;&#1072;&#1082;&#1080;&#1093; &#1086;&#1089;&#1083;&#1086;&#1078;&#1085;&#1077;&#1085;&#1080;&#1081;, &#1096;&#1088;&#1072;&#1084; &#1084;&#1080;&#1085;&#1080;&#1084;&#1072;&#1083;&#1100;&#1085;&#1099;&#1081;. &#1054;&#1095;&#1077;&#1085;&#1100; &#1076;&#1086;&#1074;&#1086;&#1083;&#1077;&#1085;.</p>
+    </div>
+
+    <div class="review-card" data-cat="gynecology">
+      <div class="review-header">
+        <div><div class="review-author">&#1048;&#1088;&#1080;&#1085;&#1072; &#1055;., 44 &#1075;.</div><div class="review-date">&#1086;&#1082;&#1090;&#1103;&#1073;&#1088;&#1100; 2025</div></div>
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      </div>
+      <span class="review-tag">&#1043;&#1080;&#1085;&#1077;&#1082;&#1086;&#1083;&#1086;&#1075;&#1080;&#1103;</span>
+      <p class="review-text">&#1054;&#1073;&#1088;&#1072;&#1090;&#1080;&#1083;&#1072;&#1089;&#1100; &#1089; &#1079;&#1072;&#1087;&#1091;&#1097;&#1077;&#1085;&#1085;&#1099;&#1084; &#1101;&#1085;&#1076;&#1086;&#1084;&#1077;&#1090;&#1088;&#1080;&#1086;&#1079;&#1086;&#1084;. &#1057;&#1077;&#1088;&#1075;&#1077;&#1081; &#1042;&#1072;&#1083;&#1077;&#1085;&#1090;&#1080;&#1085;&#1086;&#1074;&#1080;&#1095; &#1087;&#1086;&#1089;&#1090;&#1072;&#1074;&#1080;&#1083; &#1090;&#1086;&#1095;&#1085;&#1099;&#1081; &#1076;&#1080;&#1072;&#1075;&#1085;&#1086;&#1079; &#1080; &#1087;&#1088;&#1086;&#1074;&#1077;&#1083; &#1083;&#1072;&#1087;&#1072;&#1088;&#1086;&#1089;&#1082;&#1086;&#1087;&#1080;&#1095;&#1077;&#1089;&#1082;&#1091;&#1102; &#1086;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1102;. &#1041;&#1086;&#1083;&#1080; &#1087;&#1088;&#1086;&#1096;&#1083;&#1080;. &#1054;&#1095;&#1077;&#1085;&#1100; &#1074;&#1085;&#1080;&#1084;&#1072;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1081; &#1074;&#1088;&#1072;&#1095;.</p>
+    </div>
+
+    <div class="review-card" data-cat="onco">
+      <div class="review-header">
+        <div><div class="review-author">&#1054;&#1083;&#1100;&#1075;&#1072; &#1048;., 59 &#1075;.</div><div class="review-date">&#1089;&#1077;&#1085;&#1090;&#1103;&#1073;&#1088;&#1100; 2025</div></div>
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      </div>
+      <span class="review-tag">&#1054;&#1085;&#1082;&#1086;-&#1076;&#1080;&#1072;&#1075;&#1085;&#1086;&#1089;&#1090;&#1080;&#1082;&#1072;</span>
+      <p class="review-text">&#1055;&#1088;&#1086;&#1096;&#1083;&#1072; &#1086;&#1085;&#1082;&#1086;-&#1089;&#1082;&#1088;&#1080;&#1085;&#1080;&#1085;&#1075; &#8212; &#1074;&#1099;&#1103;&#1074;&#1080;&#1083;&#1080; &#1086;&#1087;&#1091;&#1093;&#1086;&#1083;&#1100; &#1085;&#1072; &#1088;&#1072;&#1085;&#1085;&#1077;&#1081; &#1089;&#1090;&#1072;&#1076;&#1080;&#1080;. &#1055;&#1088;&#1086;&#1092;&#1077;&#1089;&#1089;&#1086;&#1088; &#1089;&#1088;&#1072;&#1079;&#1091; &#1085;&#1072;&#1087;&#1088;&#1072;&#1074;&#1080;&#1083; &#1085;&#1072; &#1083;&#1077;&#1095;&#1077;&#1085;&#1080;&#1077;. &#1056;&#1072;&#1085;&#1085;&#1103;&#1103; &#1076;&#1080;&#1072;&#1075;&#1085;&#1086;&#1089;&#1090;&#1080;&#1082;&#1072; &#8212; &#1101;&#1090;&#1086; &#1078;&#1080;&#1079;&#1085;&#1100;. &#1041;&#1083;&#1072;&#1075;&#1086;&#1076;&#1072;&#1088;&#1085;&#1072; &#1073;&#1077;&#1089;&#1082;&#1086;&#1085;&#1077;&#1095;&#1085;&#1086;.</p>
+    </div>
+
+    <div class="review-card" data-cat="myomectomy">
+      <div class="review-header">
+        <div><div class="review-author">&#1042;&#1077;&#1088;&#1086;&#1085;&#1080;&#1082;&#1072; &#1044;., 33 &#1075;.</div><div class="review-date">&#1072;&#1074;&#1075;&#1091;&#1089;&#1090; 2025</div></div>
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      </div>
+      <span class="review-tag">&#1052;&#1080;&#1086;&#1084;&#1101;&#1082;&#1090;&#1086;&#1084;&#1080;&#1103;</span>
+      <p class="review-text">&#1052;&#1080;&#1086;&#1084;&#1072; 7 &#1089;&#1084; &#8212; &#1076;&#1088;&#1091;&#1075;&#1080;&#1077; &#1074;&#1088;&#1072;&#1095;&#1080; &#1075;&#1086;&#1074;&#1086;&#1088;&#1080;&#1083;&#1080; &#1091;&#1076;&#1072;&#1083;&#1103;&#1090;&#1100; &#1084;&#1072;&#1090;&#1082;&#1091;. &#1055;&#1088;&#1086;&#1092;&#1077;&#1089;&#1089;&#1086;&#1088; &#1057;&#1091;&#1096;&#1082;&#1086;&#1074; &#1089;&#1076;&#1077;&#1083;&#1072;&#1083; &#1086;&#1088;&#1075;&#1072;&#1085;&#1086;&#1089;&#1086;&#1093;&#1088;&#1072;&#1085;&#1103;&#1102;&#1097;&#1091;&#1102; &#1086;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1102;. &#1058;&#1077;&#1087;&#1077;&#1088;&#1100; &#1087;&#1083;&#1072;&#1085;&#1080;&#1088;&#1091;&#1102; &#1073;&#1077;&#1088;&#1077;&#1084;&#1077;&#1085;&#1085;&#1086;&#1089;&#1090;&#1100;. &#1057;&#1087;&#1072;&#1089;&#1080;&#1073;&#1086;!</p>
+    </div>
+
+    <div class="review-card" data-cat="surgery">
+      <div class="review-header">
+        <div><div class="review-author">&#1052;&#1080;&#1093;&#1072;&#1080;&#1083; &#1056;., 63 &#1075;.</div><div class="review-date">&#1080;&#1102;&#1083;&#1100; 2025</div></div>
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      </div>
+      <span class="review-tag">&#1061;&#1080;&#1088;&#1091;&#1088;&#1075;&#1080;&#1103;</span>
+      <p class="review-text">&#1054;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1103; &#1085;&#1072; &#1078;&#1077;&#1083;&#1091;&#1076;&#1082;&#1077; &#1087;&#1086;&#1089;&#1083;&#1077; &#1103;&#1079;&#1074;&#1077;&#1085;&#1085;&#1086;&#1081; &#1073;&#1086;&#1083;&#1077;&#1079;&#1085;&#1080;. &#1053;&#1077;&#1089;&#1084;&#1086;&#1090;&#1088;&#1103; &#1085;&#1072; &#1089;&#1083;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100; &#8212; &#1074;&#1089;&#1105; &#1087;&#1088;&#1086;&#1096;&#1083;&#1086; &#1073;&#1077;&#1079; &#1086;&#1089;&#1083;&#1086;&#1078;&#1085;&#1077;&#1085;&#1080;&#1081;. &#1042;&#1088;&#1072;&#1095;&#1091; &#1085;&#1077;&#1090; &#1088;&#1072;&#1074;&#1085;&#1099;&#1093; &#1074; &#1061;&#1072;&#1088;&#1100;&#1082;&#1086;&#1074;&#1077;.</p>
+    </div>
+
+    <div class="review-card" data-cat="gynecology">
+      <div class="review-header">
+        <div><div class="review-author">&#1057;&#1074;&#1077;&#1090;&#1083;&#1072;&#1085;&#1072; &#1042;., 41 &#1075;.</div><div class="review-date">&#1080;&#1102;&#1085;&#1100; 2025</div></div>
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      </div>
+      <span class="review-tag">&#1043;&#1080;&#1085;&#1077;&#1082;&#1086;&#1083;&#1086;&#1075;&#1080;&#1103;</span>
+      <p class="review-text">&#1043;&#1080;&#1089;&#1090;&#1077;&#1088;&#1086;&#1089;&#1082;&#1086;&#1087;&#1080;&#1103; &#8212; &#1074;&#1089;&#1077; &#1087;&#1088;&#1086;&#1096;&#1083;&#1086; &#1073;&#1099;&#1089;&#1090;&#1088;&#1086; &#1080; &#1073;&#1077;&#1079;&#1073;&#1086;&#1083;&#1077;&#1079;&#1085;&#1077;&#1085;&#1085;&#1086;. &#1042;&#1088;&#1072;&#1095; &#1090;&#1077;&#1088;&#1087;&#1077;&#1083;&#1080;&#1074;&#1086; &#1086;&#1090;&#1074;&#1077;&#1090;&#1080;&#1083; &#1085;&#1072; &#1074;&#1089;&#1077; &#1074;&#1086;&#1087;&#1088;&#1086;&#1089;&#1099;, &#1085;&#1080;&#1082;&#1072;&#1082;&#1086;&#1081; &#1089;&#1087;&#1077;&#1096;&#1082;&#1080;. &#1054;&#1095;&#1077;&#1085;&#1100; &#1082;&#1086;&#1084;&#1092;&#1086;&#1088;&#1090;&#1085;&#1072;&#1103; &#1072;&#1090;&#1084;&#1086;&#1089;&#1092;&#1077;&#1088;&#1072;.</p>
+    </div>
+
+    <div class="review-card" data-cat="onco">
+      <div class="review-header">
+        <div><div class="review-author">&#1042;&#1072;&#1083;&#1077;&#1085;&#1090;&#1080;&#1085;&#1072; &#1043;., 67 &#1075;.</div><div class="review-date">&#1084;&#1072;&#1081; 2025</div></div>
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      </div>
+      <span class="review-tag">&#1054;&#1085;&#1082;&#1086;&#1093;&#1080;&#1088;&#1091;&#1088;&#1075;&#1080;&#1103;</span>
+      <p class="review-text">&#1054;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1103; &#1087;&#1086; &#1087;&#1086;&#1074;&#1086;&#1076;&#1091; &#1088;&#1072;&#1082;&#1072; &#1084;&#1086;&#1083;&#1086;&#1095;&#1085;&#1086;&#1081; &#1078;&#1077;&#1083;&#1077;&#1079;&#1099;. &#1055;&#1088;&#1086;&#1092;&#1077;&#1089;&#1089;&#1086;&#1088; &#1089;&#1073;&#1077;&#1088;&#1077;&#1075; &#1086;&#1088;&#1075;&#1072;&#1085;. &#1055;&#1086;&#1089;&#1083;&#1077; &#1083;&#1077;&#1095;&#1077;&#1085;&#1080;&#1103; &#8212; &#1087;&#1086;&#1083;&#1085;&#1072;&#1103; &#1088;&#1077;&#1084;&#1080;&#1089;&#1089;&#1080;&#1103;. &#1041;&#1083;&#1072;&#1075;&#1086;&#1076;&#1072;&#1088;&#1085;&#1072; &#1089;&#1091;&#1076;&#1100;&#1073;&#1077; &#1079;&#1072; &#1074;&#1089;&#1090;&#1088;&#1077;&#1095;&#1091; &#1089; &#1090;&#1072;&#1082;&#1080;&#1084; &#1074;&#1088;&#1072;&#1095;&#1086;&#1084;.</p>
+    </div>
+
+    <div class="review-card" data-cat="surgery">
+      <div class="review-header">
+        <div><div class="review-author">&#1045;&#1083;&#1077;&#1085;&#1072; &#1058;., 49 &#1075;.</div><div class="review-date">&#1072;&#1087;&#1088;&#1077;&#1083;&#1100; 2025</div></div>
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      </div>
+      <span class="review-tag">&#1061;&#1080;&#1088;&#1091;&#1088;&#1075;&#1080;&#1103;</span>
+      <p class="review-text">&#1057;&#1087;&#1072;&#1081;&#1082;&#1080; &#8212; &#1093;&#1088;&#1086;&#1085;&#1080;&#1095;&#1077;&#1089;&#1082;&#1072;&#1103; &#1073;&#1086;&#1083;&#1100; 5 &#1083;&#1077;&#1090;. &#1055;&#1088;&#1086;&#1092;&#1077;&#1089;&#1089;&#1086;&#1088; &#1087;&#1088;&#1086;&#1074;&#1077;&#1083; &#1083;&#1072;&#1087;&#1072;&#1088;&#1086;&#1089;&#1082;&#1086;&#1087;&#1080;&#1095;&#1077;&#1089;&#1082;&#1080;&#1081; &#1072;&#1076;&#1075;&#1077;&#1079;&#1080;&#1086;&#1083;&#1080;&#1079;. &#1041;&#1086;&#1083;&#1077;&#1081; &#1085;&#1077;&#1090; &#1091;&#1078;&#1077; 8 &#1084;&#1077;&#1089;&#1103;&#1094;&#1077;&#1074;. &#1053;&#1072;&#1082;&#1086;&#1085;&#1077;&#1094;-&#1090;&#1086; &#1074;&#1077;&#1088;&#1085;&#1091;&#1083;&#1072;&#1089;&#1100; &#1082; &#1085;&#1086;&#1088;&#1084;&#1072;&#1083;&#1100;&#1085;&#1086;&#1081; &#1078;&#1080;&#1079;&#1085;&#1080;.</p>
+    </div>
+
+  </div><!-- /reviews-grid -->
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2>&#1047;&#1072;&#1087;&#1080;&#1096;&#1080;&#1090;&#1077;&#1089;&#1100; &#1085;&#1072; &#1082;&#1086;&#1085;&#1089;&#1091;&#1083;&#1100;&#1090;&#1072;&#1094;&#1080;&#1102;</h2>
+    <p>&#1055;&#1088;&#1086;&#1092;&#1077;&#1089;&#1089;&#1086;&#1088; &#1057;&#1091;&#1096;&#1082;&#1086;&#1074; &#8212; 40+ &#1083;&#1077;&#1090; &#1086;&#1087;&#1099;&#1090;&#1072;, 5000+ &#1086;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1081;, &#1076;&#1086;&#1082;&#1090;&#1086;&#1088; &#1084;&#1077;&#1076;. &#1085;&#1072;&#1091;&#1082;</p>
+    <div class="cta-btns">
+      <a href="https://serg2206.github.io/appointment/" class="btn-teal">&#128204; &#1047;&#1072;&#1087;&#1080;&#1089;&#1072;&#1090;&#1100;&#1089;&#1103;</a>
+      <a href="tel:+380675707949" class="btn-outline">&#128222; +380 67 570 79 49</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="sticky-bar" id="sticky">
+  <div>
+    <div style="font-size:.85rem;font-weight:600">&#1055;&#1088;&#1086;&#1092;. &#1057;&#1091;&#1096;&#1082;&#1086;&#1074; &#1057;.&#1042;.</div>
+    <div class="sticky-price">&#1050;&#1086;&#1085;&#1089;&#1091;&#1083;&#1100;&#1090;&#1072;&#1094;&#1080;&#1103; 2000 &#1075;&#1088;&#1085;</div>
+  </div>
+  <div class="sticky-actions">
+    <a href="tel:+380675707949" class="sticky-btn call">&#128222; &#1055;&#1086;&#1079;&#1074;&#1086;&#1085;&#1080;&#1090;&#1100;</a>
+    <a href="https://t.me/SSVproff_medical_bot" class="sticky-btn tg" target="_blank">&#9992; Telegram</a>
+  </div>
+</div>
+
+<footer>
+  &copy; 2026 MARIA Medical Center &middot; <a href="https://serg2206.github.io/privacy-policy.html">&#1050;&#1086;&#1085;&#1092;&#1080;&#1076;&#1077;&#1085;&#1094;&#1080;&#1072;&#1083;&#1100;&#1085;&#1086;&#1089;&#1090;&#1100;</a>
+</footer>
+
+<script>
+  // Sticky
+  const sticky = document.getElementById('sticky');
+  window.addEventListener('scroll', () => sticky.classList.toggle('visible', scrollY > 300));
+
+  // Filter
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.review-card').forEach(card => {
+        card.dataset.hidden = (f !== 'all' && card.dataset.cat !== f) ? 'true' : 'false';
+      });
     });
-  })();
-  </script>
-  <script src="../scripts.js"></script>
+  });
+</script>
 </body>
 </html>
