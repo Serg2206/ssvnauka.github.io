@@ -19,7 +19,52 @@ services:
       - ssvnauka-net
 
   # ============================================================================
-  # Portainer — Docker management UI
+  # PostgreSQL 16 — Main Database
+  # ============================================================================
+  postgres:
+    image: postgres:16-alpine
+    container_name: ssvnauka-db
+    environment:
+      POSTGRES_USER: ${DB_USER:-sergiy}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-changeme}
+      POSTGRES_DB: ${DB_NAME:-ssvnauka}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres/init:/docker-entrypoint-initdb.d:ro
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    networks:
+      - ssvnauka-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-sergiy} -d ${DB_NAME:-ssvnauka}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ============================================================================
+  # pgAdmin 4 — Database Management UI
+  # ============================================================================
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: ssvnauka-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL:-ssvnauka@gmail.com}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:-admin}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+    restart: unless-stopped
+    networks:
+      - ssvnauka-net
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  # ============================================================================
+  # Portainer — Docker Management UI
   # ============================================================================
   portainer:
     image: portainer/portainer-ce:latest
@@ -34,23 +79,19 @@ services:
       - ssvnauka-net
 
   # ============================================================================
-  # Watchtower — auto-update containers
+  # Redis — Caching & Sessions
   # ============================================================================
-  watchtower:
-    image: containrrr/watchtower:latest
-    container_name: watchtower
+  redis:
+    image: redis:7-alpine
+    container_name: ssvnauka-redis
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-    environment:
-      - WATCHTOWER_CLEANUP=true
-      - WATCHTOWER_POLL_INTERVAL=86400  # Check once per day
-      - WATCHTOWER_INCLUDE_STOPPED=true
+      - redis_data:/data
     restart: unless-stopped
     networks:
       - ssvnauka-net
 
   # ============================================================================
-  # Uptime Kuma — monitoring
+  # Uptime Kuma — Monitoring
   # ============================================================================
   uptime:
     image: louislam/uptime-kuma:latest
@@ -63,58 +104,11 @@ services:
     networks:
       - ssvnauka-net
 
-  # ============================================================================
-  # PostgreSQL (for future apps)
-  # ============================================================================
-  postgres:
-    image: postgres:16-alpine
-    container_name: ssvnauka-db
-    environment:
-      POSTGRES_USER: ${DB_USER:-sergiy}
-      POSTGRES_PASSWORD: ${DB_PASSWORD:-changeme}
-      POSTGRES_DB: ${DB_NAME:-ssvnauka}
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
-    restart: unless-stopped
-    networks:
-      - ssvnauka-net
-
-  # ============================================================================
-  # Redis (for caching)
-  # ============================================================================
-  redis:
-    image: redis:7-alpine
-    container_name: ssvnauka-redis
-    volumes:
-      - redis_data:/data
-    restart: unless-stopped
-    networks:
-      - ssvnauka-net
-
-  # ============================================================================
-  # Node Exporter (for Prometheus metrics)
-  # ============================================================================
-  node-exporter:
-    image: prom/node-exporter:latest
-    container_name: node-exporter
-    volumes:
-      - /proc:/host/proc:ro
-      - /sys:/host/sys:ro
-      - /:/rootfs:ro
-    command:
-      - '--path.procfs=/host/proc'
-      - '--path.sysfs=/host/sys'
-      - '--path.rootfs=/rootfs'
-    restart: unless-stopped
-    networks:
-      - ssvnauka-net
-
 volumes:
+  postgres_data:
+  pgadmin_data:
   portainer_data:
   uptime_data:
-  postgres_data:
   redis_data:
 
 networks:
