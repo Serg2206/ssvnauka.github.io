@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # ============================================================================
   # ssvnauka.com website (Nginx)
@@ -26,13 +24,11 @@ services:
     container_name: ssvnauka-db
     environment:
       POSTGRES_USER: ${DB_USER:-sergiy}
-      POSTGRES_PASSWORD: ${DB_PASSWORD:-changeme}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
       POSTGRES_DB: ${DB_NAME:-ssvnauka}
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./postgres/init:/docker-entrypoint-initdb.d:ro
-    ports:
-      - "5432:5432"
     restart: unless-stopped
     networks:
       - ssvnauka-net
@@ -50,7 +46,7 @@ services:
     container_name: ssvnauka-pgadmin
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL:-ssvnauka@gmail.com}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:-admin}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:?PGADMIN_PASSWORD is required}
       PGADMIN_CONFIG_SERVER_MODE: 'False'
     volumes:
       - pgadmin_data:/var/lib/pgadmin
